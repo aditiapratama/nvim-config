@@ -100,6 +100,9 @@ return {
         },
       },
     },
+    config = function()
+      require "configs.outline"
+    end,
   },
   {
     "smoka7/multicursors.nvim",
@@ -136,7 +139,7 @@ return {
     keys = {
       {
         "<leader>fj",
-        function ()
+        function()
           require("hop").hint_words()
         end,
         mode = { "n", "x", "o" },
@@ -155,5 +158,12 @@ return {
       "mfussenegger/nvim-dap", -- Optional, for debugging with DAP
       "LiadOz/nvim-dap-repl-highlights", -- Optional, for syntax highlighting in the DAP REPL
     },
+  },
+  {
+    "TheBlob42/houdini.nvim",
+    event = "VeryLazy",
+    config = function()
+      require "configs.houdini"
+    end,
   },
 }
