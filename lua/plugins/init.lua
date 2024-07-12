@@ -126,10 +126,34 @@ return {
     },
   },
   {
-    'smoka7/hop.nvim',
+    "smoka7/hop.nvim",
     version = "*",
     opts = {
-        keys = 'etovxqpdygfblzhckisuran'
-    }
-  }
+      multi_windows = true,
+      keys = "etovxqpdygfblzhckisuran",
+      uppercase_labels = true,
+    },
+    keys = {
+      {
+        "<leader>fj",
+        function ()
+          require("hop").hint_words()
+        end,
+        mode = { "n", "x", "o" },
+      },
+    },
+  },
+  {
+    "b0o/blender.nvim",
+    event = "VeryLazy",
+    config = function()
+      require "configs.blender"
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "grapp-dev/nui-components.nvim",
+      "mfussenegger/nvim-dap", -- Optional, for debugging with DAP
+      "LiadOz/nvim-dap-repl-highlights", -- Optional, for syntax highlighting in the DAP REPL
+    },
+  },
 }
