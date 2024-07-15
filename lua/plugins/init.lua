@@ -207,14 +207,11 @@ return {
   {
     "nvimtools/none-ls.nvim",
     ft = { "python" },
-    config = function()
-      require "configs.null-ls"
-    end,
-  },
-  {
-    "nvimtools/none-ls.nvim",
     dependencies = {
       "nvimtools/none-ls-extras.nvim",
     },
+    config = function()
+      require "configs.null-ls"
+    end,
   },
 }
