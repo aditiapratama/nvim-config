@@ -41,6 +41,10 @@ return {
         -- "html-lsp", "css-lsp" , "prettier"
         "pyright",
         "black",
+        "isort",
+        "mypy",
+        "ruff",
+        "debugpy",
       },
     },
   },
@@ -158,6 +162,13 @@ return {
       "mfussenegger/nvim-dap", -- Optional, for debugging with DAP
       "LiadOz/nvim-dap-repl-highlights", -- Optional, for syntax highlighting in the DAP REPL
     },
+    keys = {
+      { "<leader>bl", "<cmd>BlenderLaunch<cr>", desc = "launch Blender" },
+      { "<leader>bm", "<cmd>BlenderManage<cr>", desc = "Manage Blender" },
+      { "<leader>br", "<cmd>BlenderReload<cr>", desc = "Reload Blender" },
+      { "<leader>bu", "<cmd>BlenderUnwatch<cr>", desc = "Unwatch Blender" },
+      { "<leader>bw", "<cmd>BlenderWatch<cr>", desc = "Watch Blender" },
+    },
   },
   {
     "TheBlob42/houdini.nvim",
@@ -191,6 +202,19 @@ return {
     -- order to load the plugin when the command is run for the first time
     keys = {
       { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+    },
+  },
+  {
+    "nvimtools/none-ls.nvim",
+    ft = { "python" },
+    config = function()
+      require "configs.null-ls"
+    end,
+  },
+  {
+    "nvimtools/none-ls.nvim",
+    dependencies = {
+      "nvimtools/none-ls-extras.nvim",
     },
   },
 }
