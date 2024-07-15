@@ -166,4 +166,11 @@ return {
       require "configs.houdini"
     end,
   },
+  {
+    "charludo/projectmgr.nvim",
+    lazy = false, -- important!
+    config = function()
+      require "configs.projectmgr"
+    end,
+  },
 }
