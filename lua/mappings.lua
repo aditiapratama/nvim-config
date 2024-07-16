@@ -33,3 +33,6 @@ map("v", "<S-right>", "E", opts)
 
 -- Project
 map("n", "<leader>fp", "<CMD>:ProjectMgr<CR>", { desc = "Open Projects" })
+map("n", "[c", function()
+  require("treesitter-context").go_to_context(vim.v.count1)
+end, { silent = true })

@@ -214,4 +214,30 @@ return {
       require "configs.null-ls"
     end,
   },
+  {
+    "KronsyC/nvim-license",
+    opts = function()
+      return {
+        name = "Aditia A. Pratama",
+        -- Optional
+        year = "2024",
+      }
+    end,
+
+    cmd = {
+      "License",
+      "LicenseHeader",
+      "AutoLicense",
+    },
+    dependencies = {
+      { "numToStr/Comment.nvim" },
+    },
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    event = "VeryLazy",
+    config = function()
+      require "configs.treesitter-context"
+    end,
+  },
 }
