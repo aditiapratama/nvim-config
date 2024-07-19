@@ -240,4 +240,12 @@ return {
       require "configs.treesitter-context"
     end,
   },
+  {
+    "rcarriga/nvim-notify",
+    event = "VeryLazy"
+  },
+  {
+    "farmergreg/vim-lastplace",
+    event="VeryLazy",
+  }
 }
