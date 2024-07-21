@@ -241,11 +241,7 @@ return {
     end,
   },
   {
-    "rcarriga/nvim-notify",
-    event = "VeryLazy"
-  },
-  {
     "farmergreg/vim-lastplace",
-    event="VeryLazy",
-  }
+    event = "VeryLazy",
+  },
 }
