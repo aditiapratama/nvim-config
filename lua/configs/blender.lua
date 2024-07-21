@@ -10,8 +10,12 @@ local options = {
       -- watch = nil --           boolean?         whether to watch the add-on directory for changes (if nil, the global setting is used)
     },
     {
+      name = "Blender 4.2",
+      cmd = "/opt/blender/4.2/blender",
+    },
+    {
       name = "Blender 3.6",
-      cmd = "/opt/blender/3.0.0/blender",
+      cmd = "/opt/blender/3.6/blender",
     },
   },
   dap = { --                      DapConfig?       DAP configuration
