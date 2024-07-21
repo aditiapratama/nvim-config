@@ -1,22 +1,29 @@
--- This file needs to have same structure as nvconfig.lua 
+-- This file needs to have same structure as nvconfig.lua
 -- https://github.com/NvChad/ui/blob/v2.5/lua/nvconfig.lua
 
 ---@type ChadrcConfig
 local M = {}
 
 M.ui = {
-	theme = "catppuccin",
+  theme = "tokyonight",
   -- transparency = true,
   statusline = {
-    theme = "vscode_colored"
+    theme = "vscode_colored",
   },
   nvdash = {
-    load_on_startup = true
-  }
-	-- hl_override = {
-	-- 	Comment = { italic = true },
-	-- 	["@comment"] = { italic = true },
-	-- },
+    load_on_startup = true,
+  },
+  -- hl_override = {
+  -- 	Comment = { italic = true },
+  -- 	["@comment"] = { italic = true },
+  -- },
 }
 
+M.base46 = {
+  integrations = {
+    "notify",
+    "dap",
+    "trouble",
+  },
+}
 return M
