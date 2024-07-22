@@ -1,12 +1,5 @@
 return {
   {
-    "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
-    config = function()
-      require "configs.conform"
-    end,
-  },
-  {
     "vscode-neovim/vscode-multi-cursor.nvim",
   },
   {
@@ -87,26 +80,6 @@ return {
     keys = {
       { ",v", "<cmd>VenvSelect<cr>" },
     },
-  },
-  {
-    "hedyhli/outline.nvim",
-    lazy = true,
-    cmd = { "Outline", "OutlineOpen" },
-    keys = { -- Example mapping to toggle outline
-      { "<leader>ol", "<cmd>Outline<CR>", desc = "Toggle outline" },
-    },
-    opts = {
-      -- Your setup opts here
-      symbols = {
-        filter = {
-          default = { "String", exclude = true },
-          python = { "Function", "Class" },
-        },
-      },
-    },
-    config = function()
-      require "configs.outline"
-    end,
   },
   {
     "smoka7/multicursors.nvim",
@@ -233,13 +206,13 @@ return {
       { "numToStr/Comment.nvim" },
     },
   },
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-    event = "VeryLazy",
-    config = function()
-      require "configs.treesitter-context"
-    end,
-  },
+  -- {
+  --   "nvim-treesitter/nvim-treesitter-context",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require "configs.treesitter-context"
+  --   end,
+  -- },
   {
     "farmergreg/vim-lastplace",
     event = "VeryLazy",
