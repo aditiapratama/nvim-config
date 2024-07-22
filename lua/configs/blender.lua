@@ -23,7 +23,7 @@ local options = {
   },
   notify = { --                   NotifyConfig?    notification configuration
     enabled = true, --            boolean?         whether to enable notifications
-    verbosity = "INFO", --        'TRACE'|'DEBUG'|'INFO'|'WARN'|'ERROR'|'OFF'|vim.log.level?  log level for notifications
+    verbosity = "DEBUG", --        'TRACE'|'DEBUG'|'INFO'|'WARN'|'ERROR'|'OFF'|vim.log.level?  log level for notifications
   },
   watch = { --                    WatchConfig?     file watcher configuration
     enabled = true, --            boolean?         whether to watch the add-on directory for changes (can be overridden per profile)
