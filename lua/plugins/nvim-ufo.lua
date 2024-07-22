@@ -1,3 +1,4 @@
+-- NOTE: Improve Folds
 return {
   "kevinhwang91/nvim-ufo",
   event = "User FilePost",
