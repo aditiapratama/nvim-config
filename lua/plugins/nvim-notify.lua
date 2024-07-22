@@ -1,7 +1,7 @@
 -- NOTE: Notification
 return {
   "rcarriga/nvim-notify",
-  -- lazy = false,
+  lazy = false,
   config = function()
     dofile(vim.g.base46_cache .. "notify")
     require("notify").setup {
@@ -14,7 +14,7 @@ return {
     }
 
     vim.notify = require "notify"
-    local messages = require "core.messages"
+    local messages = require "configs.messages"
     math.randomseed(os.time())
     local randomMessage = messages[math.random(#messages)]
     if vim.g.startup_message then
