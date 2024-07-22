@@ -6,6 +6,22 @@ local capabilities = require("nvchad.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 local servers = { "html", "cssls" }
 
+local config = {
+      -- Enable virtual text
+      virtual_text = false,
+      update_in_insert = true,
+      underline = true,
+      severity_sort = true,
+      float = {
+        focusable = false,
+        style = "minimal",
+        border = "rounded",
+        source = "always",
+        header = "",
+        prefix = "",
+      },
+    }
+vim.diagnostic.config(config)
 -- lsps with default config
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -30,7 +46,10 @@ lspconfig.pyright.setup {
   settings = {
     python = {
       analysis = {
+        typeCheckingMode = "off",
+        autoSearchPaths = true,
         diagnosticMode = "workspace",
+        logLevel = "Information",
       },
     },
   },
