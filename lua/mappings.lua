@@ -34,61 +34,8 @@ map("v", "<S-right>", "E", opts)
 -- Project
 map("n", "<leader>fp", "<CMD>:ProjectMgr<CR>", { desc = "Open Projects" })
 map("n", "[c", function()
-  require("treesitter-context").go_to_context(vim.v.count1)
+  require("treesitter-context").go_to_context(vim.v.count)
 end, { silent = true })
-
--- NVimTree h,j,k,l style navigation
-local api = require "nvim-tree.api"
-
-local function edit_or_open()
-  local node = api.tree.get_node_under_cursor()
-
-  if node.nodes ~= nil then
-    -- expand or collapse folder
-    api.node.open.edit()
-  else
-    -- open file
-    api.node.open.edit()
-    api.tree.focus()
-    -- Close the tree if file was opened
-    -- api.tree.close()
-  end
-end
-
--- open as vsplit on current node
-local function vsplit_preview()
-  local node = api.tree.get_node_under_cursor()
-
-  if node.nodes ~= nil then
-    -- expand or collapse folder
-    api.node.open.edit()
-  else
-    -- open file as vsplit
-    api.node.open.vertical()
-  end
-
-  -- Finally refocus on tree if it was lost
-  api.tree.focus()
-end
--- Collapse the current folder
-local function collapse_node()
-  local node = api.tree.get_node_under_cursor()
-  if node.nodes ~= nil and node.open then
-    api.node.open.edit()
-  else
-    api.node.navigate.parent()
-    api.node.open.edit()
-  end
-end
-
-map("n", "l", edit_or_open, { desc = "Edit or Open" })
-map("n", "<right>", edit_or_open, { desc = "Edit or Open" })
-map("n", "<S-l>", vsplit_preview, { desc = "Vsplit Preview" })
-map("n", "<S-right>", vsplit_preview, { desc = "Vsplit Preview" })
-map("n", "h", collapse_node, { desc = "Collapse" })
-map("n", "<left>", collapse_node, { desc = "Collapse" })
-map("n", "<S-h>", api.tree.collapse_all, { desc = "Collapse All" })
-map("n", "<S-left>", api.tree.collapse_all, { desc = "Collapse All" })
 
 
 -- Quit
