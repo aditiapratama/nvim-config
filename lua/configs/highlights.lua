@@ -7,9 +7,52 @@ local M = {}
 
 ---@type Base46HLGroupsList
 M.override = {
-  Comment = {
+  AlphaHeader = { fg = "blue" },
+  CursorLine = {
+    bg = "black2",
+  },
+  -- Italic start here
+-- imports
+  Include = {
     italic = true,
   },
+  -- for, while loops
+  Repeat = {
+    italic = true,
+  },
+  -- if statements
+  Conditional = {
+    italic = true,
+  },
+  -- class, with, as keywords
+  ["@keyword"] = {
+    italic = true,
+  },
+  -- function keyword
+  ["@keyword.function"] = {
+    italic = true,
+  },
+  -- return, yield keywords
+  ["@keyword.return"] = {
+    bold = true,
+    italic = true,
+  },
+  -- function names
+  ["@function"] = {
+    italic = false,
+  },
+  -- symbolic
+  ["@operator"] = {
+    bold = true,
+  },
+  -- logical keywords 
+  ["@keyword.operator"] = {
+    italic = true,
+  },
+  -- function parameters
+  ["@parameter"] = {
+    italic = true,},
+  -- Italic end here
   ["@comment"] = { italic = true },
   Search = { fg = "black", bg = "blue" },
   IncSearch = { fg = "black", bg = "red" },
