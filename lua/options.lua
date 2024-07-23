@@ -62,7 +62,7 @@ local options = {
 
 local global = {
   startup_message = true, -- Show startup message
-  toggle_cmp = true,
+  toggle_cmp = false,
 }
 
 for name, value in pairs(options) do
