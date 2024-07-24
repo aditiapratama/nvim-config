@@ -5,8 +5,8 @@
 local M = {}
 local highlights = require "configs.highlights"
 M.ui = {
-  theme = "doomchad",
-  theme_toggle = { "nord", "doomchad" },
+  theme = "onedark",
+  theme_toggle = { "onedark", "tomorrow_night" },
   hl_override = highlights.override,
   hl_add = highlights.add,
   -- transparency = true,
