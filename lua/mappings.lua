@@ -37,6 +37,8 @@ map("n", "[c", function()
   require("treesitter-context").go_to_context(vim.v.count)
 end, { silent = true })
 
+-- Save with Ctrl+S and go to normal mode
+map("i", "<C-s>", "<Esc>:w<cr>", opts)
 
 -- Quit
 map("n", "<leader>q", "<cmd>qa!<cr>", { desc = "General | Quit", silent = true })
