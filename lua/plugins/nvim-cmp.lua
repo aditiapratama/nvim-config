@@ -51,7 +51,7 @@ return {
         local strings = vim.split(kind.kind, "%s", { trimempty = true })
         -- kind.kind = string.format(" %s  %s", icons[vim_item.kind], strings[1])
         if entry.source.name == "codeium" then
-          kind.kind = string.format(" %s  %s", codeium.kind, strings[1])
+          kind.kind = string.format(" %s", codeium.kind, strings[1])
         else
           kind.kind = " " .. (strings[1] or "") .. " "
         end
@@ -114,7 +114,7 @@ return {
         disable_keymaps = false,
         disable_inline_completion = false,
         keymaps = {
-          accept_suggestion = "<TAB>",
+          accept_suggestion = "<S-TAB>",
           clear_suggestion = "<Nop>",
           accept_word = "<C-y>",
         },
