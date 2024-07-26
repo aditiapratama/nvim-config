@@ -7,9 +7,14 @@ return {
   },
   opts = {
     -- Your setup opts here
+    preview_window = {
+      auto_preview = false,
+      winhl = 'NormalFloat:',
+    },
     outline_window = {
+      winhl = "",
       width = 15,
-      -- wrap = true,
+      show_cursor_line = true,
       hide_cursor = true,
       focus_on_open = false,
     },
@@ -23,7 +28,7 @@ return {
     -- },
     symbols = {
       filter = {
-        default = { "String", exclude = true },
+        default = { "String", "Variable", exclude = true },
         python = { "Function", "Class" },
       },
     },
