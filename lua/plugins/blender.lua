@@ -41,10 +41,10 @@ return {
     "LiadOz/nvim-dap-repl-highlights", -- Optional, for syntax highlighting in the DAP REPL
   },
   keys = {
-    { "<leader>bl", "<cmd>BlenderLaunch<cr>", desc = "launch Blender" },
-    { "<leader>bm", "<cmd>BlenderManage<cr>", desc = "Manage Blender" },
-    { "<leader>br", "<cmd>BlenderReload<cr>", desc = "Reload Blender" },
-    { "<leader>bu", "<cmd>BlenderUnwatch<cr>", desc = "Unwatch Blender" },
-    { "<leader>bw", "<cmd>BlenderWatch<cr>", desc = "Watch Blender" },
+    { "<leader>Bl", "<cmd>BlenderLaunch<cr>", desc = "launch Blender" },
+    { "<leader>Bm", "<cmd>BlenderManage<cr>", desc = "Manage Blender" },
+    { "<leader>Br", "<cmd>BlenderReload<cr>", desc = "Reload Blender" },
+    { "<leader>Bu", "<cmd>BlenderUnwatch<cr>", desc = "Unwatch Blender" },
+    { "<leader>Bw", "<cmd>BlenderWatch<cr>", desc = "Watch Blender" },
   },
 }
