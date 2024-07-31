@@ -5,13 +5,13 @@
 local M = {}
 local highlights = require "configs.highlights"
 M.ui = {
-  theme = "onedark",
+  theme = "catppuccin",
   theme_toggle = { "onedark", "catppuccin" },
   hl_override = highlights.override,
   hl_add = highlights.add,
   -- transparency = true,
   statusline = {
-    theme = "vscode_colored",
+    theme = "minimal",
   },
   nvdash = {
     load_on_startup = true,
