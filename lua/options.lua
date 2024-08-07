@@ -52,6 +52,7 @@ local options = {
   fillchars = { eob = " ", fold = " ", foldopen = "", foldsep = " ", foldclose = "", lastline = " " }, -- make EndOfBuffer invisible
   ruler = false,
   cmdheight = 0,
+  helpheight = 0,
   -- shell = vim.fn.executable "pwsh" and "pwsh" or "powershell",
   -- shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
   -- shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
