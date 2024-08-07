@@ -1,7 +1,9 @@
+---@type NvPluginSpec
 -- NOTE: Notification
 return {
   "rcarriga/nvim-notify",
-  lazy = false,
+  -- lazy = false,
+  event = "VeryLazy",
   config = function()
     dofile(vim.g.base46_cache .. "notify")
     require("notify").setup {
