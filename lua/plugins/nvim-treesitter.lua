@@ -1,3 +1,4 @@
+---@type NvPluginSpec
 -- NOTE: Syntax Highlighting
 return {
   "nvim-treesitter/nvim-treesitter",
@@ -46,7 +47,7 @@ return {
         end, { desc = "Treesitter | Jumping to context (upwards)", silent = true })
       end,
       opts = {
-        enable = false,
+        enable = true,
       },
     },
   },
