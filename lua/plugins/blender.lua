@@ -1,3 +1,5 @@
+---@type NvPluginSpec
+--- Blender
 return {
   "b0o/blender.nvim",
   event = "VeryLazy",

@@ -1,3 +1,4 @@
+---@type NvPluginSpec
 return {
   "fedepujol/move.nvim",
   opts = {},

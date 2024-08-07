@@ -1,3 +1,4 @@
+---@type NvPluginSpec
 return {
   "TheBlob42/houdini.nvim",
   event = "VeryLazy",

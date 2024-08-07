@@ -1,6 +1,8 @@
+---@type NvPluginSpec
 -- NOTE: UI for messages, cmdline, and popup
 return {
   "folke/noice.nvim",
+  lazy = false,
   dependencies = { { "MunifTanjim/nui.nvim" }, { "rcarriga/nvim-notify" } },
   opts = {
     cmdline = {
@@ -62,7 +64,7 @@ return {
         opts = {}, -- merged with defaults from documentation
       },
       signature = {
-        enabled = true,
+        enabled = false,
         auto_open = {
           enabled = true,
           trigger = true, -- Automatically show signature help when typing a trigger character from the LSP

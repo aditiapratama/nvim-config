@@ -57,6 +57,7 @@ local function on_attach(bufnr)
   map("n", "<S-h>", api.tree.collapse_all, opts "Collapse All")
   map("n", "<S-left>", api.tree.collapse_all, opts "Collapse All")
 end
+---@type NvPluginSpec
 -- NvimTree
 return {
   "nvim-tree/nvim-tree.lua",

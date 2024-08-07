@@ -1,3 +1,4 @@
+---@type NvPluginSpec
 return {
   "vyfor/cord.nvim",
   build = "./build",
