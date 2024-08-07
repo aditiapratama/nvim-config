@@ -5,13 +5,10 @@
 local M = {}
 local highlights = require "configs.highlights"
 M.ui = {
-  theme = "catppuccin",
-  theme_toggle = { "onedark", "catppuccin" },
-  hl_override = highlights.override,
-  hl_add = highlights.add,
-  -- transparency = true,
+    -- transparency = true,
   statusline = {
     theme = "minimal",
+    separator_style = "round",
   },
   nvdash = {
     load_on_startup = true,
@@ -27,7 +24,13 @@ M.ui = {
   -- },
 }
 
+M.cheatsheet = { theme = "grid" } -- simple/grid
+
 M.base46 = {
+  theme = "catppuccin",
+  theme_toggle = { "onedark", "catppuccin" },
+  hl_override = highlights.override,
+  hl_add = highlights.add,
   integrations = {
     "notify",
     "dap",
