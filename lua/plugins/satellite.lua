@@ -1,7 +1,8 @@
 ---@type NvPluginSpec
 return{
   "lewis6991/satellite.nvim",
-  lazy = false,
+  enabled = false,
+  -- lazy = false,
   config = function()
     require("satellite").setup(
     {
