@@ -6,7 +6,7 @@ require "nvchad.options"
 -- o.cursorlineopt ='both' -- to enable cursorline!
 --
 local autocmd = vim.api.nvim_create_autocmd
-local uv = vim.loop
+local uv = vim.uv
 
 autocmd("VimEnter", {
   callback = function()
