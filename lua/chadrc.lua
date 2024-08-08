@@ -5,24 +5,35 @@
 local M = {}
 local highlights = require "configs.highlights"
 M.ui = {
-    -- transparency = true,
-  statusline = {
-    theme = "minimal",
-    separator_style = "round",
-  },
-  nvdash = {
-    load_on_startup = true,
-  },
+  -- transparency = true,
+  telescope = { style = "bordered" }, -- borderless / bordered
   cmp = {
     icons = true,
     lspkind_text = true,
     style = "default", -- default/flat_light/flat_dark/atom/atom_colored
   },
-  -- hl_override = {
-  -- 	Comment = { italic = true },
-  -- 	["@comment"] = { italic = true },
-  -- },
+  statusline = {
+    theme = "minimal", -- default/vscode/vscode_colored/minimal
+    -- default/round/block/arrow separators work only for default statusline theme
+    -- round and block will work for minimal theme only
+    separator_style = "round",
+  },
+  nvdash = {
+    load_on_startup = true,
+    buttons = {
+      { "  Find File", "Spc f f", "Telescope find_files" },
+      { "󰈚  Recent Files", "Spc f r", "Telescope oldfiles" },
+      { "󰈭  Find Word", "Spc f w", "Telescope live_grep" },
+      { "  Find Projects", "Spc f p", "Telescope projects" },
+      { "  Themes", "Spc f t", "Telescope themes" },
+      { "  Mappings", "Spc n c", "NvCheatsheet" },
+    },
+  },
 }
+
+M.mason = { cmd = true, pkgs = {} }
+
+M.lsp = { signature = false }
 
 M.cheatsheet = { theme = "grid" } -- simple/grid
 
