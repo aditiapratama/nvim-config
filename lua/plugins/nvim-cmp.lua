@@ -16,7 +16,7 @@ return {
   end,
   config = function(_, opts)
     -- table.insert(opts.sources, 2, { name = "codeium" })
-    table.insert(opts.sources, 1, { name = "supermaven" })
+    -- table.insert(opts.sources, 1, { name = "supermaven" })
 
     opts.mapping = vim.tbl_extend("force", {}, opts.mapping, {
       -- You can add here new mappings.
@@ -30,6 +30,11 @@ return {
 
     local icons = require "nvchad.icons.lspkind"
 
+    -- Add your custom menu here
+    local menu = {
+      -- ["vim-dadbod-completion"] = "",
+    }
+
     opts.window = {
       completion = {
         winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
@@ -41,11 +46,10 @@ return {
     opts.formatting = {
       fields = { "kind", "abbr", "menu" },
       format = function(entry, vim_item)
-        local kind = require("lspkind").cmp_format { mode = "text", maxwidth = 50 }(entry, vim_item)
+        local kind = require("lspkind").cmp_format { menu = menu, mode = "text", maxwidth = 50 }(entry, vim_item)
         local strings = vim.split(kind.kind, " ", { trimempty = true })
         kind.kind = string.format(" %s  %s", icons[vim_item.kind], strings[1])
-        kind.menu = " " .. (strings[2] or "") .. ""
-
+        kind.menu = " " .. (kind.menu or "")
         return kind
       end,
     }
@@ -65,7 +69,7 @@ return {
     end
 
     require("cmp").setup(opts)
-    
+
     local cmdline_mappings = vim.tbl_extend("force", {}, require("cmp").mapping.preset.cmdline(), {
       -- ["<CR>"] = { c = require("cmp").mapping.confirm { select = true } },
     })
