@@ -4,6 +4,7 @@ local options = {
   debounce = 150,
   -- save_after_format = false,
   sources = {
+    null_ls.builtins.formatting.isort,
     null_ls.builtins.formatting.black,
     null_ls.builtins.diagnostics.mypy.with {
       extra_args = function()
