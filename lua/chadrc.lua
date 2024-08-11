@@ -38,8 +38,8 @@ M.lsp = { signature = false }
 M.cheatsheet = { theme = "grid" } -- simple/grid
 
 M.base46 = {
-  theme = "catppuccin",
-  theme_toggle = { "onedark", "catppuccin" },
+  theme = "tokyodark",
+  theme_toggle = { "tokyodark", "catppuccin" },
   hl_override = highlights.override,
   hl_add = highlights.add,
   integrations = {
