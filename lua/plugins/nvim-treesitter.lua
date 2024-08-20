@@ -82,6 +82,11 @@ return {
       "java",
       "http",
       "json",
+      "toml",
+      "rst",
+      "ninja",
+      "markdown",
+      "markdown_inline",
     },
     indent = {
       enable = false,
