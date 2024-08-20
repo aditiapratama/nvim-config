@@ -9,11 +9,21 @@ return {
   cmd = "Oil",
   opts = {
     -- Send deleted files to the trash instead of permanently deleting them (:help oil-trash)
-    -- default_file_explorer = true,
+    default_file_explorer = true,
     delete_to_trash = true,
+    skip_confirm_for_simple_edits = true,
     view_options = {
       -- Show files and directories that start with "."
       show_hidden = true,
+      natural_order = true,
+      is_always_hidden = function(name,_)
+          local hidden_files = {'..', '.git', '__pycache__', '.mypy_cache'}
+          for _, hidden_file in ipairs(hidden_files) do
+            if name == hidden_file then
+              return true
+            end
+          end
+      end,
     },
     -- Configuration for the floating window in oil.open_float
     float = {
@@ -23,6 +33,7 @@ return {
       max_width = math.ceil(vim.o.columns * 0.4),
       border = "rounded",
       win_options = {
+        wrap = true,
         winblend = 0,
       },
       -- This is the config that will be passed to nvim_open_win.
