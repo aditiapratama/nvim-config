@@ -15,12 +15,13 @@ return {
       ensure_installed = {
         -- "lua-language-server", "stylua",
         -- "html-lsp", "css-lsp" , "prettier"
-        "pyright",
-        "black",
-        "isort",
+        "pyright", -- LSP for python
+        "ruff", -- linter for python (includes flake8, pep8, etc
+        "debugpy", -- debugger 
+        "black", -- formatter 
+        "isort", -- oraginze imports
+        "taplo", -- LSP for toml
         "mypy",
-        "ruff",
-        "debugpy",
         "cspell",
         "fish",
         "fish_indent",
