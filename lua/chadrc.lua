@@ -5,7 +5,7 @@
 local M = {}
 local highlights = require "configs.highlights"
 M.ui = {
-  -- transparency = true,
+  transparency = true,
   telescope = { style = "bordered" }, -- borderless / bordered
   cmp = {
     icons = true,
@@ -31,14 +31,60 @@ M.ui = {
   },
 }
 
-M.mason = { cmd = true, pkgs = {} }
+M.mason = {
+  cmd = true,
+  -- Use names from mason.nvim
+  -- For example, if you want to install "tsserver" you should use "typescript-language-server" in the list below
+  pkgs = {
+    -- Lua
+    "lua-language-server",
+    "vim-language-server",
+    "stylua",
+
+    -- Web Development
+    -- "css-lsp",
+    -- "html-lsp",
+    -- "typescript-language-server",
+    -- "deno",
+    -- "vue-language-server",
+    -- "tailwindcss-language-server",
+    -- "emmet_language_server",
+    -- "eslint-lsp",
+
+    -- PHP
+    -- "intelephense",
+
+    -- C/C++
+    -- "clangd",
+    -- "clang-format",
+
+    -- CMake
+    -- "neocmakelsp",
+
+    -- Java
+    -- "jdtls",
+
+    -- Yaml
+    -- "yaml-language-server",
+
+    -- Python
+    "basedpyright",
+
+    -- Go
+    -- "gopls",
+
+    -- C#
+    -- "omnisharp",
+    -- "omnisharp-mono",
+  },
+}
 
 M.lsp = { signature = false }
 
 M.cheatsheet = { theme = "grid" } -- simple/grid
 
 M.base46 = {
-  theme = "tokyodark",
+  theme = "catppuccin",
   theme_toggle = { "tokyodark", "catppuccin" },
   hl_override = highlights.override,
   hl_add = highlights.add,
