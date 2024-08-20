@@ -6,6 +6,7 @@ local formatters_by_ft = {
   go = { "gofumpt" },
   cs = { "csharpier" },
   yaml = { "yamlfmt" },
+  markdown = { "inject" },
 }
 
 local prettier_ft = {
@@ -37,11 +38,11 @@ return {
     -- format_after_save = {
     --   async = true,
     -- },
-    -- format_on_save = {
-    --   -- These options will be passed to conform.format()
-    --   quiet = true,
-    --   lsp_fallback = true,
-    -- },
+    format_on_save = {
+      -- These options will be passed to conform.format()
+      -- quiet = true,
+      lsp_fallback = true,
+    },
     formatters_by_ft = formatters_by_ft,
   },
 }
