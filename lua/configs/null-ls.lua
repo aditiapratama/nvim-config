@@ -5,7 +5,11 @@ local options = {
   -- save_after_format = false,
   sources = {
     null_ls.builtins.formatting.isort,
-    null_ls.builtins.formatting.black,
+    null_ls.builtins.formatting.black.with {
+      extra_args = function() 
+        return { "--line-length", "80" }
+      end,
+    },
     null_ls.builtins.diagnostics.mypy.with {
       extra_args = function()
         local virtual = os.getenv "VIRTUAL_ENV" or "/usr"
