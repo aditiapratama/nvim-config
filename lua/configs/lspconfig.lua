@@ -38,6 +38,12 @@ lspconfig.tsserver.setup {
   capabilities = capabilities,
 }
 
+-- taplo
+lspconfig.taplo.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 -- python
 lspconfig.pyright.setup {
   on_attach = on_attach,
@@ -46,10 +52,11 @@ lspconfig.pyright.setup {
   settings = {
     python = {
       analysis = {
-        typeCheckingMode = "off",
+        typeCheckingMode = "on",
         autoSearchPaths = true,
         diagnosticMode = "workspace",
         logLevel = "Information",
+        docstringStyle = "google",
       },
     },
   },
