@@ -4,17 +4,17 @@ return {
   "rcarriga/nvim-notify",
   -- lazy = false,
   event = "VeryLazy",
-  config = function()
-    dofile(vim.g.base46_cache .. "notify")
-    require("notify").setup {
-      level = 2,
-      minimum_width = 50,
-      render = "default",
-      stages = "fade",
-      timeout = 3000,
-      top_down = false,
-    }
-
+  opts = {
+    level = 2,
+    minimum_width = 50,
+    render = "default",
+    stages = "fade",
+    timeout = 3000,
+    top_down = false,
+    background_colour = "#000000",
+  },
+  config = function(_, opts)
+    require("notify").setup(opts)
     vim.notify = require "notify"
     local messages = require "configs.messages"
     math.randomseed(os.time())
@@ -24,3 +24,4 @@ return {
     end
   end,
 }
+-- dofile(vim.g.base46_cache .. "notify")
