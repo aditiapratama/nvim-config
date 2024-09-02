@@ -33,7 +33,7 @@ end
 return {
   -- NOTE: Formatting
   "stevearc/conform.nvim",
-  event = "User FilePost",
+  event = "BufReadPost",
   opts = {
     -- format_after_save = {
     --   async = true,
