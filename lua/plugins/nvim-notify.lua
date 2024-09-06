@@ -11,10 +11,16 @@ return {
     stages = "fade",
     timeout = 3000,
     top_down = false,
-    background_colour = "#000000",
   },
   config = function(_, opts)
+    local base46 = require("nvconfig").base46
+
+    if base46.transparency then
+      opts.background_colour = "#000000"
+    end
+
     require("notify").setup(opts)
+
     vim.notify = require "notify"
     local messages = require "configs.messages"
     math.randomseed(os.time())
