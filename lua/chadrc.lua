@@ -5,7 +5,7 @@
 local M = {}
 local highlights = require "configs.highlights"
 M.ui = {
-  transparency = true,
+  -- transparency = true,
   telescope = { style = "bordered" }, -- borderless / bordered
   cmp = {
     icons = true,
@@ -84,6 +84,7 @@ M.lsp = { signature = false }
 M.cheatsheet = { theme = "grid" } -- simple/grid
 
 M.base46 = {
+  transparency = true,
   theme = "catppuccin",
   theme_toggle = { "tokyodark", "catppuccin" },
   hl_override = highlights.override,
