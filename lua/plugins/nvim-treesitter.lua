@@ -47,7 +47,7 @@ return {
         end, { desc = "Treesitter | Jumping to context (upwards)", silent = true })
       end,
       opts = {
-        enable = true,
+        enable = false,
       },
     },
   },
