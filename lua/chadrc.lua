@@ -6,11 +6,11 @@ local M = {}
 local highlights = require "configs.highlights"
 M.ui = {
   -- transparency = true,
-  telescope = { style = "bordered" }, -- borderless / bordered
+  telescope = { style = "borderless" }, -- borderless / bordered
   cmp = {
     icons = true,
     lspkind_text = true,
-    style = "default", -- default/flat_light/flat_dark/atom/atom_colored
+    style = "atom", -- default/flat_light/flat_dark/atom/atom_colored
   },
   statusline = {
     theme = "minimal", -- default/vscode/vscode_colored/minimal
