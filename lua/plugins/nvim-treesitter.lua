@@ -15,11 +15,11 @@ return {
     "TSToggle",
     "TSBufToggle",
   },
-  config = function(_, opts)
-    dofile(vim.g.base46_cache .. "syntax")
-    dofile(vim.g.base46_cache .. "treesitter")
-    require("nvim-treesitter.configs").setup(opts)
-  end,
+  -- config = function(_, opts)
+  --   dofile(vim.g.base46_cache .. "syntax")
+  --   dofile(vim.g.base46_cache .. "treesitter")
+  --   require("nvim-treesitter.configs").setup(opts)
+  -- end,
   dependencies = {
     {
       "windwp/nvim-ts-autotag",
@@ -63,30 +63,28 @@ return {
     --   end,
     -- },
     ensure_installed = {
-      "vim",
-      "vimdoc",
-      "lua",
-      "html",
-      "css",
-      "javascript",
-      "typescript",
-      "tsx",
+      "bash",
       "c",
       "cpp",
-      "markdown",
-      "markdown_inline",
-      "regex",
-      "bash",
+      "css",
       "go",
-      "python",
-      "java",
+      "html",
       "http",
+      "java",
+      "javascript",
       "json",
-      "toml",
-      "rst",
-      "ninja",
+      "lua",
       "markdown",
       "markdown_inline",
+      "ninja",
+      "python",
+      "regex",
+      "rst",
+      "toml",
+      "tsx",
+      "typescript",
+      "vim",
+      "vimdoc",
     },
     indent = {
       enable = false,
