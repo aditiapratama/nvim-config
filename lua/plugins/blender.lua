@@ -48,6 +48,7 @@ return {
     { "<leader>Br", "<cmd>BlenderReload<cr>", desc = "Reload Blender" },
     { "<leader>Bu", "<cmd>BlenderUnwatch<cr>", desc = "Unwatch Blender" },
     { "<leader>Bw", "<cmd>BlenderWatch<cr>", desc = "Watch Blender" },
+    { "q", function() require("blender.actions").close_ui() end, desc = "Close UI" },
     { "<leader>`", function() require("blender.actions").toggle_ui() end, desc = "Toggle UI" },
   },
 }
