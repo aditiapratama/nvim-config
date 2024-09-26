@@ -2,7 +2,10 @@
 return {
   "TheBlob42/houdini.nvim",
   event = "VeryLazy",
-  config = function()
-    require("houdini").setup()
+  opts = {
+      mappings = {"jk","jj"},
+  },
+  config = function(_, opts)
+    require("houdini").setup(opts)
   end,
 }
