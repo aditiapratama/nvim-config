@@ -1,6 +1,4 @@
--- This file needs to have same structure as nvconfig.lua
--- https://github.com/NvChad/ui/blob/v2.5/lua/nvconfig.lua
-
+-- NOTE: NvChad Related Options
 ---@type ChadrcConfig
 local M = {}
 local highlights = require "configs.highlights"
@@ -16,19 +14,30 @@ M.ui = {
     theme = "minimal", -- default/vscode/vscode_colored/minimal
     -- default/round/block/arrow separators work only for default statusline theme
     -- round and block will work for minimal theme only
-    separator_style = "round",
+    separator_style = "default",
   },
-  nvdash = {
-    load_on_startup = true,
-    buttons = {
-      { "  Find File", "Spc f f", "Telescope find_files" },
-      { "󰈚  Recent Files", "Spc f r", "Telescope oldfiles" },
-      { "󰈭  Find Word", "Spc f w", "Telescope live_grep" },
-      { "  Find Projects", "Spc f p", "Telescope projects" },
-      { "  Themes", "Spc f t", "Telescope themes" },
-      { "  Mappings", "Spc n c", "NvCheatsheet" },
-    },
-  },
+  -- nvdash = {
+  --   load_on_startup = true,
+    -- header = {
+    --   "           ▄ ▄                   ",
+    --   "       ▄   ▄▄▄     ▄ ▄▄▄ ▄ ▄     ",
+    --   "       █ ▄ █▄█ ▄▄▄ █ █▄█ █ █     ",
+    --   "    ▄▄ █▄█▄▄▄█ █▄█▄█▄▄█▄▄█ █     ",
+    --   "  ▄ █▄▄█ ▄ ▄▄ ▄█ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄  ",
+    --   "  █▄▄▄▄ ▄▄▄ █ ▄ ▄▄▄ ▄ ▄▄▄ ▄ ▄ █ ▄",
+    --   "▄ █ █▄█ █▄█ █ █ █▄█ █ █▄█ ▄▄▄ █ █",
+    --   "█▄█ ▄ █▄▄█▄▄█ █ ▄▄█ █ ▄ █ █▄█▄█ █",
+    --   "    █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █▄█▄▄▄█    ",
+    -- },
+    -- buttons = {
+    --   { text = "  Find File", keys = "Spc f f", cmd = "Telescope find_files" },
+    --   { text = "󰈚  Recent Files", keys = "Spc f r", cmd = "Telescope oldfiles" },
+    --   { text = "󰈭  Find Word", keys = "Spc f w", cmd = "Telescope live_grep" },
+    --   { text = "  Find Projects", keys = "Spc f p", cmd = "Telescope projects" },
+    --   { text = "  Themes", keys = "Spc f t", cmd = "Telescope themes" },
+    --   { text = "  Mappings", keys = "Spc n c", cmd = "NvCheatsheet" },
+    -- },
+  -- },
 }
 
 M.mason = {
@@ -69,6 +78,12 @@ M.mason = {
 
     -- Python
     "basedpyright",
+    "pyright",
+    "isort",
+    "black",
+    "mypy",
+    "ruff",
+    "prettier",
 
     -- Go
     -- "gopls",
@@ -94,5 +109,8 @@ M.base46 = {
     "dap",
     "trouble",
   },
+}
+M.nvdash = {
+  load_on_startup = true,
 }
 return M
