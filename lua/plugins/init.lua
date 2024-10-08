@@ -11,26 +11,7 @@ return {
   },
   {
     "williamboman/mason.nvim",
-    opts = {
-      -- ensure_installed = {
-      --   -- "lua-language-server", "stylua",
-      --   -- "html-lsp", "css-lsp" , "prettier"
-      --   "pyright", -- LSP for python
-      --   "ruff", -- linter for python (includes flake8, pep8, etc
-      --   "debugpy", -- debugger 
-      --   "black", -- formatter 
-      --   "isort", -- oraginze imports
-      --   "taplo", -- LSP for toml
-      --   "mypy",
-      --   "cspell",
-      --   "fish",
-      --   "fish_indent",
-      --   "mdformat",
-      --   "prettier",
-      --   "shfmt",
-      --   "stylua",
-      -- },
-    },
+    opts = {},
   },
   {
     "nvim-treesitter/nvim-treesitter",
