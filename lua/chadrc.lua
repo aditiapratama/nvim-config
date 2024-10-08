@@ -1,6 +1,7 @@
 -- NOTE: NvChad Related Options
 ---@type ChadrcConfig
 local M = {}
+local headers = require "configs.headers"
 local highlights = require "configs.highlights"
 M.ui = {
   -- transparency = true,
@@ -16,28 +17,6 @@ M.ui = {
     -- round and block will work for minimal theme only
     separator_style = "default",
   },
-  -- nvdash = {
-  --   load_on_startup = true,
-    -- header = {
-    --   "           ▄ ▄                   ",
-    --   "       ▄   ▄▄▄     ▄ ▄▄▄ ▄ ▄     ",
-    --   "       █ ▄ █▄█ ▄▄▄ █ █▄█ █ █     ",
-    --   "    ▄▄ █▄█▄▄▄█ █▄█▄█▄▄█▄▄█ █     ",
-    --   "  ▄ █▄▄█ ▄ ▄▄ ▄█ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄  ",
-    --   "  █▄▄▄▄ ▄▄▄ █ ▄ ▄▄▄ ▄ ▄▄▄ ▄ ▄ █ ▄",
-    --   "▄ █ █▄█ █▄█ █ █ █▄█ █ █▄█ ▄▄▄ █ █",
-    --   "█▄█ ▄ █▄▄█▄▄█ █ ▄▄█ █ ▄ █ █▄█▄█ █",
-    --   "    █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █▄█▄▄▄█    ",
-    -- },
-    -- buttons = {
-    --   { text = "  Find File", keys = "Spc f f", cmd = "Telescope find_files" },
-    --   { text = "󰈚  Recent Files", keys = "Spc f r", cmd = "Telescope oldfiles" },
-    --   { text = "󰈭  Find Word", keys = "Spc f w", cmd = "Telescope live_grep" },
-    --   { text = "  Find Projects", keys = "Spc f p", cmd = "Telescope projects" },
-    --   { text = "  Themes", keys = "Spc f t", cmd = "Telescope themes" },
-    --   { text = "  Mappings", keys = "Spc n c", cmd = "NvCheatsheet" },
-    -- },
-  -- },
 }
 
 M.mason = {
@@ -100,7 +79,7 @@ M.cheatsheet = { theme = "grid" } -- simple/grid
 
 M.base46 = {
   transparency = true,
-  theme = "catppuccin",
+  theme = "tokyodark",
   theme_toggle = { "tokyodark", "catppuccin" },
   hl_override = highlights.override,
   hl_add = highlights.add,
@@ -110,7 +89,25 @@ M.base46 = {
     "trouble",
   },
 }
+
+local function get_header(default)
+  if vim.g.random_header then
+    local headerNames = {}
+    for name, _ in pairs(headers) do
+      table.insert(headerNames, name)
+    end
+
+    local randomName = headerNames[math.random(#headerNames)]
+    local randomHeader = headers[randomName]
+    return randomHeader
+  else
+    local name = (default == nil or default == "") and "nvchad" or default
+    return headers[name]
+  end
+end
+
 M.nvdash = {
   load_on_startup = true,
+  header = get_header "default",
 }
 return M
