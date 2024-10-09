@@ -79,8 +79,8 @@ M.cheatsheet = { theme = "grid" } -- simple/grid
 
 M.base46 = {
   transparency = true,
-  theme = "tokyodark",
-  theme_toggle = { "tokyodark", "catppuccin" },
+  theme = "chadracula-evondev",
+  theme_toggle = { "chadracula-evondev", "catppuccin" },
   hl_override = highlights.override,
   hl_add = highlights.add,
   integrations = {
