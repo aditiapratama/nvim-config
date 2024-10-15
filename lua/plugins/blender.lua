@@ -34,6 +34,9 @@ return {
       watch = { --                    WatchConfig?     file watcher configuration
         enabled = true, --            boolean?         whether to watch the add-on directory for changes (can be overridden per profile)
       },
+      -- panel = {
+      --     height = 10;
+      -- }
     }
   end,
   dependencies = {
@@ -43,12 +46,31 @@ return {
     "LiadOz/nvim-dap-repl-highlights", -- Optional, for syntax highlighting in the DAP REPL
   },
   keys = {
+    {
+      "<leader>1",
+      function()
+        require("blender.actions").toggle_ui()
+      end,
+      desc = "Toggle UI",
+    },
     { "<leader>Bl", "<cmd>BlenderLaunch<cr>", desc = "launch Blender" },
     { "<leader>Bm", "<cmd>BlenderManage<cr>", desc = "Manage Blender" },
     { "<leader>Br", "<cmd>BlenderReload<cr>", desc = "Reload Blender" },
     { "<leader>Bu", "<cmd>BlenderUnwatch<cr>", desc = "Unwatch Blender" },
     { "<leader>Bw", "<cmd>BlenderWatch<cr>", desc = "Watch Blender" },
-    { "q", function() require("blender.actions").close_ui() end, desc = "Close UI" },
-    { "<leader>`", function() require("blender.actions").toggle_ui() end, desc = "Toggle UI" },
+    {
+      "q",
+      function()
+        require("blender.actions").close_ui()
+      end,
+      desc = "Close UI",
+    },
+    {
+      "<leader>`",
+      function()
+        require("blender.actions").toggle_output_panel()
+      end,
+      desc = "Toggle Panel",
+    },
   },
 }
