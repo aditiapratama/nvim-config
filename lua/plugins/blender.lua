@@ -16,6 +16,10 @@ return {
           -- watch = nil --           boolean?         whether to watch the add-on directory for changes (if nil, the global setting is used)
         },
         {
+          name = "Blender 4.3",
+          cmd = "/opt/blender/4.3/blender",
+        },
+        {
           name = "Blender 4.2",
           cmd = "/opt/blender/4.2/blender",
         },
