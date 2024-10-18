@@ -29,6 +29,8 @@ return {
   },
   {
     "nvimtools/none-ls.nvim",
+    enabled = false,
+    -- lazy=false,
     ft = { "python" },
     dependencies = {
       "nvimtools/none-ls-extras.nvim",
