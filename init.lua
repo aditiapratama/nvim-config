@@ -1,6 +1,6 @@
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
 vim.g.mapleader = " "
-vim.g.maplocalleader = ','
+vim.g.maplocalleader = ","
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
@@ -13,23 +13,22 @@ vim.opt.rtp:prepend(lazypath)
 
 local lazy_config = require "configs.lazy"
 
--- load plugins
+-- NOTE: Load plugins
 require("lazy").setup({
   {
     "NvChad/NvChad",
     lazy = false,
     branch = "v2.5",
     import = "nvchad.plugins",
-    config = function()
-      require "options"
-    end,
   },
 
   { import = "plugins" },
 }, lazy_config)
 
--- load theme
+-- Load the highlights
 require("base46").load_all_highlights()
+
+require "options"
 require "nvchad.autocmds"
 
 vim.schedule(function()
