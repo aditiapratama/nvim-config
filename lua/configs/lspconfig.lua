@@ -7,20 +7,20 @@ local lspconfig = require "lspconfig"
 local servers = { "html", "cssls" }
 
 local config = {
-      -- Enable virtual text
-      virtual_text = false,
-      update_in_insert = true,
-      underline = true,
-      severity_sort = true,
-      float = {
-        focusable = false,
-        style = "minimal",
-        border = "rounded",
-        source = "always",
-        header = "",
-        prefix = "",
-      },
-    }
+  -- Enable virtual text
+  virtual_text = false,
+  update_in_insert = true,
+  underline = true,
+  severity_sort = true,
+  float = {
+    focusable = false,
+    style = "minimal",
+    border = "rounded",
+    source = "always",
+    header = "",
+    prefix = "",
+  },
+}
 vim.diagnostic.config(config)
 -- lsps with default config
 for _, lsp in ipairs(servers) do
