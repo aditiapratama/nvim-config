@@ -1,42 +1,46 @@
 ---@type NvPluginSpec
 -- NOTE: Default Plugins
 return {
-  -- These are some examples, uncomment them if you want to see them work!
+  -- NvChad Default Terminal
   {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require("nvchad.configs.lspconfig").defaults()
-      require "configs.lspconfig"
-    end,
+    "NvChad/nvterm",
+    -- enabled = false,
   },
   {
-    "williamboman/mason.nvim",
-    opts = {},
+    "NvChad/ui",
   },
+  { "nvchad/volt" },
   {
-    "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "vim",
-        "lua",
-        "vimdoc",
-        "html",
-        "css",
-        "python",
-        "toml",
-      },
-    },
+    "nvchad/minty",
   },
-  {
-    "nvimtools/none-ls.nvim",
-    enabled = false,
-    -- lazy=false,
-    ft = { "python" },
-    dependencies = {
-      "nvimtools/none-ls-extras.nvim",
-    },
-    config = function()
-      require "configs.null-ls"
-    end,
-  },
+  -- {
+  --   "williamboman/mason.nvim",
+  --   opts = {},
+  -- },
+  -- {
+  --   "nvim-treesitter/nvim-treesitter",
+  --   opts = {
+  --     ensure_installed = {
+  --       "vim",
+  --       "lua",
+  --       "vimdoc",
+  --       "html",
+  --       "css",
+  --       "python",
+  --       "toml",
+  --     },
+  --   },
+  -- },
+  -- {
+  --   "nvimtools/none-ls.nvim",
+  --   enabled = false,
+  --   -- lazy=false,
+  --   ft = { "python" },
+  --   dependencies = {
+  --     "nvimtools/none-ls-extras.nvim",
+  --   },
+  --   config = function()
+  --     require "configs.null-ls"
+  --   end,
+  -- },
 }
