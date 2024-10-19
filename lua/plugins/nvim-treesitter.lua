@@ -15,11 +15,6 @@ return {
     "TSToggle",
     "TSBufToggle",
   },
-  -- config = function(_, opts)
-  --   dofile(vim.g.base46_cache .. "syntax")
-  --   dofile(vim.g.base46_cache .. "treesitter")
-  --   require("nvim-treesitter.configs").setup(opts)
-  -- end,
   dependencies = {
     {
       "windwp/nvim-ts-autotag",
@@ -76,11 +71,8 @@ return {
       "lua",
       "markdown",
       "markdown_inline",
-      "ninja",
       "python",
       "regex",
-      "rst",
-      "toml",
       "tsx",
       "typescript",
       "vim",
