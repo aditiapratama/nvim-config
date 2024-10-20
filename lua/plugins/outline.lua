@@ -1,7 +1,8 @@
 ---@type NvPluginSpec
 return {
   "hedyhli/outline.nvim",
-  lazy = true,
+  enabled = false,
+  -- lazy = true,
   -- event = "User OutlineOpened",
   cmd = { "Outline", "OutlineOpen" },
   keys = { -- Example mapping to toggle outline
