@@ -2,6 +2,7 @@
 -- NOTE: Improve Other LSP Functionalities
 return {
   "nvimdev/lspsaga.nvim",
+  -- enabled = false,
   event = "LspAttach",
   -- commit = "898030df423a527c55a6fd85e85e58e840ff6e82",
   init = function()
@@ -95,7 +96,7 @@ return {
     },
 
     symbol_in_winbar = {
-      enable = true,
+      enable = false,
       separator = "  ",
       hide_keyword = true,
       show_file = false,
