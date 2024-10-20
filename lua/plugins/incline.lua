@@ -1,48 +1,22 @@
 ---@type NvPluginSpec
---- Incline
+--- NOTE: Incline for naming if modified
 return {
   "b0o/incline.nvim",
-  enabled = false,
-  -- event = "VeryLazy",
+  event = "BufReadPre",
+  priority = 1200,
   config = function()
     require("incline").setup {
-      ---@class InclineRenderProps
-      ---@field buf number
-      ---@field win number
-      ---@field focused boolean
-
-      ---@param props InclineRenderProps
+      window = { margin = { vertical = 0, horizontal = 1 } },
+      hide = { cursorline = true },
       render = function(props)
-        if not props.focused then
-          return ""
+        local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
+        if vim.bo[props.buf].modified then
+          filename = "[+]" .. filename
         end
 
-        local count = vim.fn.searchcount { recompute = 1, maxcount = -1 }
-        local contents = vim.fn.getreg "/"
-        if string.len(contents) == 0 then
-          return ""
-        end
-
-        return {
-          {
-            " ? ",
-            group = "dkoStatusKey",
-          },
-          {
-            (" %s "):format(contents),
-            group = "IncSearch",
-          },
-          {
-            (" %d/%d "):format(count.current, count.total),
-            group = "dkoStatusValue",
-          },
-        }
+        local icon, color = require("nvim-web-devicons").get_icon_color(filenam)
+        return { { icon, guifg = color }, { " " }, { filename } }
       end,
-
-      window = {
-        margin = { horizontal = 0 },
-        padding = 0,
-      },
     }
   end,
 }
