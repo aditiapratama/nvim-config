@@ -7,8 +7,8 @@ return {
     "nvim-telescope/telescope-fzf-native.nvim",
   },
   lazy = false, -- important!
+  event = "LspAttach",
   config = function()
     require("dropbar").setup()
   end,
-
 }
