@@ -1,13 +1,15 @@
 -- NOTE: NvChad Related Options
 ---@type ChadrcConfig
 local M = {}
+
 local headers = require "configs.headers"
 local highlights = require "configs.highlights"
+
 M.ui = {
   -- transparency = true,
   telescope = { style = "borderless" }, -- borderless / bordered
   cmp = {
-    icons = true,
+    -- icons = true,
     lspkind_text = true,
     style = "atom", -- default/flat_light/flat_dark/atom/atom_colored
   },
@@ -57,11 +59,11 @@ M.mason = {
 
     -- Python
     "basedpyright",
+    "ruff",
     "pyright",
     "isort",
     "black",
     "mypy",
-    "ruff",
     "prettier",
 
     -- Go
@@ -79,7 +81,7 @@ M.cheatsheet = { theme = "grid" } -- simple/grid
 
 M.base46 = {
   transparency = true,
-  theme = "chadracula",
+  theme = "catppuccin",
   theme_toggle = { "chadracula", "catppuccin" },
   hl_override = highlights.override,
   hl_add = highlights.add,
