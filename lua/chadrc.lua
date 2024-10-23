@@ -2,24 +2,46 @@
 ---@type ChadrcConfig
 local M = {}
 
-local headers = require "configs.headers"
 local highlights = require "configs.highlights"
+local headers = require "configs.headers"
+
+local function get_header(default)
+  if vim.g.random_header then
+    local headerNames = {}
+    for name, _ in pairs(headers) do
+      table.insert(headerNames, name)
+    end
+
+    local randomName = headerNames[math.random(#headerNames)]
+    local randomHeader = headers[randomName]
+    return randomHeader
+  else
+    local name = (default == nil or default == "") and "nvchad" or default
+    return headers[name]
+  end
+end
 
 M.ui = {
   -- transparency = true,
-  telescope = { style = "borderless" }, -- borderless / bordered
+  telescope = { style = "bordered" }, -- borderless / bordered
   cmp = {
-    -- icons = true,
-    lspkind_text = true,
     style = "atom", -- default/flat_light/flat_dark/atom/atom_colored
   },
   statusline = {
     theme = "minimal", -- default/vscode/vscode_colored/minimal
     -- default/round/block/arrow separators work only for default statusline theme
+
     -- round and block will work for minimal theme only
     separator_style = "default",
   },
 }
+
+M.nvdash = {
+  load_on_startup = true,
+  header = get_header "default",
+}
+
+M.cheatsheet = { theme = "grid" } -- simple/grid
 
 M.mason = {
   cmd = true,
@@ -77,11 +99,9 @@ M.mason = {
 
 M.lsp = { signature = false }
 
-M.cheatsheet = { theme = "grid" } -- simple/grid
-
 M.base46 = {
   transparency = true,
-  theme = "catppuccin",
+  theme = "chadracula",
   theme_toggle = { "chadracula", "catppuccin" },
   hl_override = highlights.override,
   hl_add = highlights.add,
@@ -92,24 +112,4 @@ M.base46 = {
   },
 }
 
-local function get_header(default)
-  if vim.g.random_header then
-    local headerNames = {}
-    for name, _ in pairs(headers) do
-      table.insert(headerNames, name)
-    end
-
-    local randomName = headerNames[math.random(#headerNames)]
-    local randomHeader = headers[randomName]
-    return randomHeader
-  else
-    local name = (default == nil or default == "") and "nvchad" or default
-    return headers[name]
-  end
-end
-
-M.nvdash = {
-  load_on_startup = true,
-  header = get_header "default",
-}
 return M
