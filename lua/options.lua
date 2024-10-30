@@ -1,20 +1,5 @@
+-- NOTE: Neovim options
 require "nvchad.options"
-
--- add yours here!
-
--- local o = vim.o
--- o.cursorlineopt ='both' -- to enable cursorline!
---
-local autocmd = vim.api.nvim_create_autocmd
-local uv = vim.uv
-
-autocmd("VimEnter", {
-  callback = function()
-    if vim.env.TMUX_PLUGIN_MANAGER_PATH then
-      uv.spawn(vim.env.TMUX_PLUGIN_MANAGER_PATH .. "tmux-window-name/scripts/rename_session_windows.py", {})
-    end
-  end,
-})
 
 local options = {
   laststatus = 3, -- global statusline
@@ -40,7 +25,7 @@ local options = {
   shiftwidth = 4, -- the number of spaces inserted for each indentation
   tabstop = 4, -- insert 2 spaces for a tab
   softtabstop = 4, -- number of spaces in tab when editing
-  colorcolumn = "80",-- column at which to fold long lines
+  colorcolumn = "80", -- column at which to fold long lines
   showmatch = true, -- show matching brackets.
   cursorline = false, -- highlight the current line
   number = true, -- set numbered lines
