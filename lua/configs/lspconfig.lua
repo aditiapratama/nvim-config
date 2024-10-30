@@ -10,7 +10,7 @@ local config = {
   -- Enable virtual text
   virtual_text = false,
   update_in_insert = true,
-  underline = true,
+  underline = false,
   severity_sort = true,
   float = {
     focusable = false,
