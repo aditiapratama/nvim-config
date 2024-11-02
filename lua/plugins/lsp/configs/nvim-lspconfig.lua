@@ -20,7 +20,7 @@ return {
       -- Enable virtual text
       virtual_text = false,
       update_in_insert = false,
-      underline = false,
+      underline = true,
       severity_sort = true,
       float = {
         focusable = false,
