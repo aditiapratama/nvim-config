@@ -9,6 +9,8 @@ return {
   "lukas-reineke/indent-blankline.nvim",
   event = "BufReadPost",
   opts = function(_, opts)
+    -- Other blankline configuration here
+    opts.scope.enabled = false
     require("indent-rainbowline").make_opts(opts, {
       color_transparency = 0.18,
       -- NOTE: dracula colors
@@ -20,18 +22,6 @@ return {
       -- NOTE: tokyonight colors
       colors = { 0x7aa2f7, 0x9ece6a, 0xf7768e, 0xe0af68, 0xbb9af7, 0xff9e64, 0x7dcfff },
     })
-    -- Other blankline configuration here
-    require("ibl").setup {
-      -- indent = { highlight = highlight, char = "" },
-      -- whitespace = {
-      --   highlight = highlight,
-      --   remove_blankline_trail = false,
-      -- },
-      scope = {
-        enabled = false,
-        show_start = false,
-      },
-    }
     return opts
   end,
   dependencies = {
