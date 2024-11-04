@@ -5,7 +5,7 @@ return {
   init = function()
     vim.keymap.set("n", "<leader>lf", "<cmd>Format<cr>", { desc = "LSP | Format", silent = true })
     vim.keymap.set("n", "<leader>lF", "<cmd>FormatToggle<cr>", { desc = "LSP | Toggle Autoformat", silent = true })
-    vim.keymap.set("n", "<leader>li", "<cmd>LspInfo<cr>", { desc = "LSP | Info", silent = true })
+    vim.keymap.set("n", "<leader>Li", "<cmd>LspInfo<cr>", { desc = "LSP | Info", silent = true })
     vim.keymap.set("n", "<leader>lR", "<cmd>LspRestart<cr>", { desc = "LSP | Restart", silent = true })
 
     vim.keymap.set("n", "<leader>lh", function()
@@ -19,9 +19,9 @@ return {
     local config = {
       -- Enable virtual text
       virtual_text = false,
-      update_in_insert = false,
-      underline = true,
-      severity_sort = true,
+      update_in_insert = true,
+      underline = false,
+      severity_sort = false,
       float = {
         focusable = false,
         style = "minimal",
