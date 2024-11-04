@@ -21,6 +21,10 @@ return {
       window = { margin = { vertical = 0, horizontal = 1 } },
       hide = { cursorline = true },
       render = function(props)
+        -- Only render for the focused buffer
+        if not props.focused then
+          return ""
+        end
         local colors = dofile(vim.g.base46_cache .. "colors")
         -- Get filename and parent directory
         local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
