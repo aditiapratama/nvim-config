@@ -127,12 +127,13 @@ return {
 
     outline = {
       win_position = "right",
-      win_with = "",
+      -- win_with = "",
       win_width = 30,
-      show_detail = true,
-      auto_preview = true,
+      detail = false,
+      auto_preview = false,
       auto_refresh = true,
       auto_close = true,
+      layout = "float",
       custom_sort = nil,
       keys = {
         jump = "o",
