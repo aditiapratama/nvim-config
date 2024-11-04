@@ -25,7 +25,8 @@ M.ui = {
   -- transparency = true,
   telescope = { style = "bordered" }, -- borderless / bordered
   cmp = {
-    style = "atom", -- default/flat_light/flat_dark/atom/atom_colored
+    lspkind_text = true,
+    style = "default", -- default/flat_light/flat_dark/atom/atom_colored
   },
   statusline = {
     theme = "minimal", -- default/vscode/vscode_colored/minimal
