@@ -32,7 +32,8 @@ return {
       },
     }
 
-    local signs = { Error = "", Warn = "", Hint = "󰌵", Info = "" }
+    -- local signs = { Error = "", Warn = "", Hint = "󰌵", Info = "" }
+    local signs = { Error = "", Warn = "", Hint = "󰌵", Info = "" }
 
     if vim.version().minor >= 11 then
       config.signs = {
