@@ -27,6 +27,9 @@ M.ui = {
   cmp = {
     lspkind_text = true,
     style = "default", -- default/flat_light/flat_dark/atom/atom_colored
+    format_colors = {
+      tailwind = true,
+    },
   },
   statusline = {
     theme = "minimal", -- default/vscode/vscode_colored/minimal
@@ -53,14 +56,15 @@ M.mason = {
     "lua-language-server",
     "vim-language-server",
     "stylua",
+    "luacheck",
 
     -- Web Development
-    -- "css-lsp",
+    "css-lsp",
     -- "html-lsp",
-    -- "typescript-language-server",
+    "typescript-language-server",
     -- "deno",
     -- "vue-language-server",
-    -- "tailwindcss-language-server",
+    "tailwindcss-language-server",
     -- "emmet_language_server",
     -- "eslint-lsp",
 
@@ -95,6 +99,12 @@ M.mason = {
     -- C#
     -- "omnisharp",
     -- "omnisharp-mono",
+
+    -- Extra
+    "selene",
+    "shellcheck",
+    "shfmt",
+    "marksman",
   },
 }
 
