@@ -138,7 +138,7 @@ return {
       keys = {
         jump = "o",
         expand_collaspe = "u",
-        quit = ";",
+        quit = "q",
       },
     },
 
