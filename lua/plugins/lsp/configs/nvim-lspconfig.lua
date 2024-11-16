@@ -1,21 +1,102 @@
 ---@type NvPluginSpec
---  NOTE: LSP Configuration
 return {
   "neovim/nvim-lspconfig",
+  init = function()
+    local map = vim.keymap.set
+    map("n", "<leader>lf", "<cmd>Format<cr>", { desc = "LSP | Format", silent = true })
+    map("n", "<leader>lF", "<cmd>FormatToggle<cr>", { desc = "LSP | Toggle Autoformat", silent = true })
+    map("n", "<leader>Li", "<cmd>LspInfo<cr>", { desc = "LSP | Info", silent = true })
+    map("n", "<leader>lR", "<cmd>LspRestart<cr>", { desc = "LSP | Restart", silent = true })
+    map("n", "<leader>lh", function()
+      if vim.version().minor >= 10 then
+        local enabled = vim.lsp.inlay_hint.is_enabled()
+        vim.lsp.inlay_hint.enable(not enabled)
+      else
+        vim.notify("Inlay hints require Neovim 0.10 or newer", vim.log.levels.WARN)
+      end
+    end, { desc = "LSP | Toggle Inlay Hints", silent = true })
+  end,
+  cmd = "LspInfo",
+  config = function()
+    local config = {
+      virtual_text = false,
+      update_in_insert = true,
+      underline = false,
+      severity_sort = false,
+      float = {
+        focusable = false,
+        style = "minimal",
+        border = "rounded",
+        source = "always",
+        header = "",
+        prefix = "",
+      },
+    }
+
+    local signs = { Error = "", Warn = "", Hint = "󰌵", Info = "" }
+
+    if vim.version().minor >= 11 then
+      config.signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = signs.Error,
+          [vim.diagnostic.severity.WARN] = signs.Warn,
+          [vim.diagnostic.severity.HINT] = signs.Hint,
+          [vim.diagnostic.severity.INFO] = signs.Info,
+        },
+      }
+    else
+      for type, icon in pairs(signs) do
+        local hl = "DiagnosticSign" .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+      end
+      config.signs = { active = signs }
+    end
+
+    vim.diagnostic.config(config)
+    if vim.g.border_enabled then
+      require("lspconfig.ui.windows").default_options.border = "rounded"
+    end
+  end,
   opts = {
     inlay_hints = { enabled = false },
     --@type lspconfig.options
     servers = {
       cssls = {},
-      marksman = {},
+      marksman = {
+        filetypes = { "markdown" },
+        -- root_dir = require("lspconfig.util").root_pattern(".git", ".marksman.toml"),
+      },
       tailwindcss = {
-        root_dir = function(...)
-          return require("lspconfig.util").root_pattern ".git"(...)
+        filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact" },
+        root_dir = function(fname)
+          local util = require "lspconfig.util"
+          local root = util.root_pattern(
+            "tailwind.config.js",
+            "tailwind.config.cjs",
+            "tailwind.config.mjs",
+            "tailwind.config.ts",
+            "postcss.config.js",
+            "postcss.config.cjs",
+            "package.json",
+            ".git"
+          )(fname)
+
+          -- Further validate by checking if package.json contains "tailwindcss"
+          if root and util.path.is_file(util.path.join(root, "package.json")) then
+            local package_json = util.path.join(root, "package.json")
+            local content = vim.fn.readfile(package_json)
+            for _, line in ipairs(content) do
+              if line:match '"tailwindcss"' then
+                return root
+              end
+            end
+          end
+          return nil
         end,
       },
       tsserver = {
-        root_dir = function(...)
-          return require("lspconfig.util").root_pattern ".git"(...)
+        root_dir = function(fname)
+          return require("lspconfig.util").root_pattern("tsconfig.json", "package.json", ".git")(fname)
         end,
         single_file_support = false,
         settings = {
@@ -45,26 +126,14 @@ return {
       },
       html = {},
       yamlls = {
-        settings = {
-          keyOrdering = false,
-        },
+        settings = { keyOrdering = false },
       },
       lua_ls = {
         single_file_support = true,
         settings = {
           Lua = {
-            workspace = {
-              checkThirdParty = false,
-            },
-            completion = {
-              workspaceWord = true,
-              callSnippet = "Both",
-            },
-            misc = {
-              parameters = {
-                -- "--log-level=trace",
-              },
-            },
+            workspace = { checkThirdParty = false },
+            completion = { workspaceWord = true, callSnippet = "Both" },
             hint = {
               enable = true,
               setType = false,
@@ -73,32 +142,8 @@ return {
               semicolon = "Disable",
               arrayIndex = "Disable",
             },
-            doc = {
-              privateName = { "^_" },
-            },
-            type = {
-              castNumberToInteger = true,
-            },
             diagnostics = {
-              disable = { "incomplete-siganture-doc", "trailing-space" },
-              groupSeverity = {
-                strong = "Warning",
-                strict = "Warning",
-              },
-              groupFileStatus = {
-                ["ambiguity"] = "Opened",
-                ["await"] = "Opened",
-                ["codestyle"] = "None",
-                ["duplicate"] = "Opened",
-                ["global"] = "Opened",
-                ["luadoc"] = "Opened",
-                ["redefined"] = "Opened",
-                ["strict"] = "Opened",
-                ["strong"] = "Opened",
-                ["type-check"] = "Opened",
-                ["unbalanced"] = "Opened",
-                ["unused"] = "Opened",
-              },
+              disable = { "incomplete-signature-doc", "trailing-space" },
               unusedLocalExclude = { "_*" },
             },
             format = {
@@ -115,82 +160,4 @@ return {
     },
     setup = {},
   },
-  init = function()
-    vim.keymap.set("n", "<leader>lf", "<cmd>Format<cr>", { desc = "LSP | Format", silent = true })
-    vim.keymap.set("n", "<leader>lF", "<cmd>FormatToggle<cr>", { desc = "LSP | Toggle Autoformat", silent = true })
-    vim.keymap.set("n", "<leader>Li", "<cmd>LspInfo<cr>", { desc = "LSP | Info", silent = true })
-    vim.keymap.set("n", "<leader>lR", "<cmd>LspRestart<cr>", { desc = "LSP | Restart", silent = true })
-
-    vim.keymap.set("n", "<leader>lh", function()
-      if vim.version().minor >= 10 then
-        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-      end
-    end, { desc = "LSP | Toggle Inlay Hints", silent = true })
-  end,
-  cmd = "LspInfo",
-  config = function()
-    local config = {
-      -- Enable virtual text
-      virtual_text = false,
-      update_in_insert = true,
-      underline = false,
-      severity_sort = false,
-      float = {
-        focusable = false,
-        style = "minimal",
-        border = "rounded",
-        source = "always",
-        header = "",
-        prefix = "",
-      },
-    }
-
-    -- local signs = { Error = "", Warn = "", Hint = "󰌵", Info = "" }
-    local signs = { Error = "", Warn = "", Hint = "󰌵", Info = "" }
-
-    if vim.version().minor >= 11 then
-      config.signs = {
-        text = {
-          [vim.diagnostic.severity.ERROR] = signs.Error,
-          [vim.diagnostic.severity.WARN] = signs.Warn,
-          [vim.diagnostic.severity.HINT] = signs.Hint,
-          [vim.diagnostic.severity.INFO] = signs.Info,
-        },
-        linehl = {
-          [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
-          [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
-          [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
-          [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
-        },
-        numhl = {
-          [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
-          [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
-          [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
-          [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
-        },
-      }
-    else
-      for type, icon in pairs(signs) do
-        local hl = "DiagnosticSign" .. type
-        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-      end
-      config.signs = { active = signs }
-    end
-
-    vim.diagnostic.config(config)
-
-    if vim.g.border_enabled then
-      -- NOTE: Enable border for LSP UI Windows (lspinfo)
-      require("lspconfig.ui.windows").default_options.border = "rounded"
-
-      -- NOTE: Enable border for LSP hover, signature help. But cannot use along with Noice's hover, signature help!
-
-      --   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-      --     border = "rounded",
-      --   })
-      --   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-      --     border = "rounded",
-      --   })
-    end
-  end,
 }

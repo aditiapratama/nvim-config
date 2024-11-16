@@ -63,8 +63,9 @@ M.mason = {
     -- "html-lsp",
     "typescript-language-server",
     -- "deno",
-    -- "vue-language-server",
+    "vue-language-server",
     "tailwindcss-language-server",
+    "vtsls",
     -- "emmet_language_server",
     -- "eslint-lsp",
 
