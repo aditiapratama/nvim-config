@@ -105,7 +105,7 @@ M.mason = {
     "selene",
     "shellcheck",
     "shfmt",
-    "marksman",
+    -- "marksman",
   },
 }
 

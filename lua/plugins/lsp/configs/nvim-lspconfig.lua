@@ -62,10 +62,10 @@ return {
     --@type lspconfig.options
     servers = {
       cssls = {},
-      marksman = {
-        filetypes = { "markdown" },
-        -- root_dir = require("lspconfig.util").root_pattern(".git", ".marksman.toml"),
-      },
+      -- marksman = {
+      --   filetypes = { "markdown" },
+      --   -- root_dir = require("lspconfig.util").root_pattern(".git", ".marksman.toml"),
+      -- },
       tailwindcss = {
         filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact" },
         root_dir = function(fname)
