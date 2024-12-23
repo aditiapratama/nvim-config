@@ -107,7 +107,7 @@ return {
     {
       "supermaven-inc/supermaven-nvim",
       -- commit = "df3ecf7",
-      event = "BufReadPost",
+      event = "User FilePost",
       opts = {
         disable_keymaps = false,
         disable_inline_completion = false,
