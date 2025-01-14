@@ -7,7 +7,7 @@ local highlight_bg = {
 -- NOTE: Show Indentlines
 return {
   "lukas-reineke/indent-blankline.nvim",
-  event = "User FilePost",
+  event = "VeryLazy",
   opts = function(_, opts)
     -- Other blankline configuration here
     opts.scope.enabled = false
