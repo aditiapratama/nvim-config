@@ -1,13 +1,11 @@
 ---@type NvPluginSpec
-return{
+return {
   "lewis6991/satellite.nvim",
-  enabled = false,
+  cond = false,
   -- lazy = false,
   config = function()
-    require("satellite").setup(
-    {
+    require("satellite").setup {
       width = 5,
     }
-    )
   end,
 }
