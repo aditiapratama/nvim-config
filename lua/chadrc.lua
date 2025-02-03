@@ -113,7 +113,7 @@ M.lsp = { signature = false }
 
 M.base46 = {
   transparency = true,
-  theme = "chadracula",
+  theme = "catppuccin",
   theme_toggle = { "chadracula", "catppuccin" },
   hl_override = highlights.override,
   hl_add = highlights.add,
