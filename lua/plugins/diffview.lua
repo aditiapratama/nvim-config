@@ -12,4 +12,5 @@ return {
     end, { desc = "Diffview | Toggle Diffview", silent = true })
   end,
   event = "VeryLazy",
+  cmd = { "DiffviewOpen", "DiffviewClose" },
 }

@@ -1,3 +1,4 @@
+-- NOTE: lazy.nvim(Plugin Manager) options
 return {
   defaults = { lazy = true },
   install = { colorscheme = { "nvchad" } },
@@ -9,6 +10,9 @@ return {
     notify = false, -- get a notification when changes are found
   },
   lockfile = vim.fn.stdpath "data" .. "/lazy-lock.json",
+  diff = {
+    cmd = "diffview.nvim",
+  },
   ui = {
     border = vim.g.border_enabled and "rounded" or "none",
     icons = {
