@@ -2,11 +2,10 @@
 -- NOTE: Improve Other LSP Functionalities
 return {
   "nvimdev/lspsaga.nvim",
-  -- enabled = false,
   event = "LspAttach",
   -- commit = "898030df423a527c55a6fd85e85e58e840ff6e82",
   init = function()
-    vim.keymap.set("n", "<leader>la", "<cmd>Lspsaga code_action<cr>", { desc = "Lspsaga | Code Action", silent = true })
+    -- vim.keymap.set("n", "<leader>la", "<cmd>Lspsaga code_action<cr>", { desc = "Lspsaga | Code Action", silent = true })
     vim.keymap.set("n", "<leader>lo", "<cmd>Lspsaga outline<cr>", { desc = "Lspsaga | Code Outline", silent = true })
     vim.keymap.set(
       "n",
@@ -34,7 +33,7 @@ return {
       { desc = "Lspsaga | Prev Diagnostic", silent = true }
     )
 
-    vim.keymap.set("v", "<leader>la", "<cmd>Lspsaga code_action<cr>", { desc = "Lspsaga | Code Action", silent = true })
+    -- vim.keymap.set("v", "<leader>la", "<cmd>Lspsaga code_action<cr>", { desc = "Lspsaga | Code Action", silent = true })
   end,
   opts = {
     preview = {
@@ -127,18 +126,17 @@ return {
 
     outline = {
       win_position = "right",
-      -- win_with = "",
+      win_with = "",
       win_width = 30,
-      detail = false,
-      auto_preview = false,
+      show_detail = true,
+      auto_preview = true,
       auto_refresh = true,
       auto_close = true,
-      layout = "float",
       custom_sort = nil,
       keys = {
         jump = "o",
         expand_collaspe = "u",
-        quit = "q",
+        quit = ";",
       },
     },
 
