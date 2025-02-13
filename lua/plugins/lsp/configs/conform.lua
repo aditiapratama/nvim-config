@@ -41,7 +41,7 @@ return {
     formatters_by_ft = formatters_by_ft,
     formatters = {
       black = {
-        prepend_args = { "--line-length", "79" },
+        prepend_args = { "--line-length", "120" },
       },
     },
   },
