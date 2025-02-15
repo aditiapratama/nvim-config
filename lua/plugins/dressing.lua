@@ -2,7 +2,7 @@
 -- NOTE: Improve UI
 return {
   "stevearc/dressing.nvim",
-  event = "VeryLazy",
+  event = {"bufReadPost", "bufNewFile"},
   opts = {
     input = {
       enabled = true,

@@ -1,7 +1,7 @@
 ---@type NvPluginSpec
 return {
   "TheBlob42/houdini.nvim",
-  event = "VeryLazy",
+  event = {"bufReadPost", "bufNewFile"},
   opts = {
     mappings = { "jk", "jj" },
     escape_sequences = {

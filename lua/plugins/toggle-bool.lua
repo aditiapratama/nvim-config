@@ -2,7 +2,7 @@
 --- NOTE:: Bool Toggle plugin
 return {
   "gerazov/toggle-bool.nvim",
-  event = "VeryLazy",
+  event = {"bufReadPost", "bufNewFile"},
   opts = {
     mapping = "<leader>tt",
     additional_toggles = {

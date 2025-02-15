@@ -2,6 +2,8 @@
 -- NOTE: Show diffs
 return {
   "sindrets/diffview.nvim",
+  event = { "bufReadPost", "bufNewFile" },
+  cmd = { "DiffviewOpen", "DiffviewClose" },
   init = function()
     vim.keymap.set("n", "<leader>gd", function()
       if next(require("diffview.lib").views) == nil then
@@ -11,6 +13,4 @@ return {
       end
     end, { desc = "Diffview | Toggle Diffview", silent = true })
   end,
-  event = "VeryLazy",
-  cmd = { "DiffviewOpen", "DiffviewClose" },
 }

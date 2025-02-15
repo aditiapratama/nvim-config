@@ -2,6 +2,6 @@
 -- NOTE: Better QuickFixList
 return {
   "stevearc/quicker.nvim",
-  event = "VeryLazy",
+  event = { "bufReadPost", "bufNewFile" },
   opts = {},
 }

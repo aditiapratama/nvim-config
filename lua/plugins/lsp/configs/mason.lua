@@ -2,7 +2,7 @@
 -- NOTE: Package installer
 return {
   "williamboman/mason.nvim",
-  event = "VeryLazy",
+  event = { "bufReadPost", "bufNewFile" },
   init = function()
     vim.keymap.set("n", "<leader>lm", "<cmd>Mason<cr>", { desc = "Mason | Installer", silent = true })
   end,

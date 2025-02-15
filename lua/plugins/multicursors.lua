@@ -2,7 +2,7 @@
 return {
   {
     "smoka7/multicursors.nvim",
-    event = "VeryLazy",
+    event = {"bufReadPost", "bufNewFile"},
     dependencies = {
       "nvimtools/hydra.nvim",
     },

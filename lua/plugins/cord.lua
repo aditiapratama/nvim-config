@@ -2,7 +2,7 @@
 return {
   "vyfor/cord.nvim",
   build = "./build",
-  event = "VeryLazy",
+  event = {"bufReadPost", "bufNewFile"},
   opts = {},
   config = function()
     require("cord").setup {

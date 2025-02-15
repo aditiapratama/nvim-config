@@ -2,7 +2,7 @@
 ---NOTE: ChatGPT AI plugin
 return {
   "jackMort/ChatGPT.nvim",
-  -- event = "VeryLazy",
+  -- event = {"bufReadPost", "bufNewFile"},
   enabeld = false,
   config = function()
     require("chatgpt").setup {

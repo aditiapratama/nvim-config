@@ -2,7 +2,7 @@
 return {
   "fedepujol/move.nvim",
   opts = {},
-  event = "VeryLazy",
+  event = {"bufReadPost", "bufNewFile"},
   config = function()
     require("move").setup {
       line = {

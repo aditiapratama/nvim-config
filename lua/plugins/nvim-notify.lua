@@ -3,7 +3,7 @@
 return {
   "rcarriga/nvim-notify",
   -- lazy = false,
-  event = "VeryLazy",
+  event = {"bufReadPost", "bufNewFile"},
   opts = {
     level = 2,
     minimum_width = 50,

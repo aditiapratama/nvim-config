@@ -2,7 +2,7 @@
 --- Blender
 return {
   "b0o/blender.nvim",
-  event = "VeryLazy",
+  event = {"bufReadPost", "bufNewFile"},
   config = function()
     require("blender").setup {
       profiles = { --                 Profile[]?       list of blender profiles

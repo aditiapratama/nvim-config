@@ -24,7 +24,7 @@ local formatters_by_ft = {
 return {
   -- NOTE: Formatting
   "stevearc/conform.nvim",
-  event = "BufWritePost",
+  event = { "bufReadPost", "bufNewFile" },
   opts = {
     format_after_save = function(bufnr)
       -- Disable with a global or buffer-local variable

@@ -21,6 +21,6 @@ return {
   },
   {
     "farmergreg/vim-lastplace",
-    event = "VeryLazy",
+    event = {"bufReadPost", "bufNewFile"},
   },
 }
