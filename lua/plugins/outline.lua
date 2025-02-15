@@ -1,7 +1,7 @@
 ---@type NvPluginSpec
 return {
   "hedyhli/outline.nvim",
-  cond = false,
+  enabled = false,
   -- lazy = true,
   -- event = "User OutlineOpened",
   cmd = { "Outline", "OutlineOpen" },

@@ -1,6 +1,6 @@
 return {
   "3rd/image.nvim",
-  cond = false,
+  enabled = false,
   opts = {
     backend = "kitty",
     processor = "magick_cli",
