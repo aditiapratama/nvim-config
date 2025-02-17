@@ -1,5 +1,4 @@
 -- NOTE: Neovim options
-require "nvchad.options"
 
 local options = {
   laststatus = 3, -- global statusline
