@@ -1,66 +1,30 @@
+---@type NvPluginSpec
 local function on_attach(bufnr)
-  local map = vim.keymap.set
+  local api = require "nvim-tree.api"
 
   local function opts(desc)
     return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
-  -- NVimTree h,j,k,l style navigation
-  local api = require "nvim-tree.api"
 
-  local function edit_or_open()
-    local node = api.tree.get_node_under_cursor()
-
-    if node.nodes ~= nil then
-      -- expand or collapse folder
-      api.node.open.edit()
-    else
-      -- open file
-      api.node.open.edit()
-      -- api.tree.focus()
-      -- Close the tree if file was opened
-      -- api.tree.close()
-    end
-  end
-
-  -- open as vsplit on current node
-  local function vsplit_preview()
-    local node = api.tree.get_node_under_cursor()
-
-    if node.nodes ~= nil then
-      -- expand or collapse folder
-      api.node.open.edit()
-    else
-      -- open file as vsplit
-      api.node.open.vertical()
-    end
-    -- Finally refocus on tree if it was lost
-    -- api.tree.focus()
-  end
-  -- Collapse the current folder
-  local function collapse_node()
-    local node = api.tree.get_node_under_cursor()
-    if node.nodes ~= nil and node.open then
-      api.node.open.edit()
-    else
-      api.node.navigate.parent()
-      api.node.open.edit()
-    end
-  end
   api.config.mappings.default_on_attach(bufnr)
 
-  map("n", "l", edit_or_open, opts "Edit or Open")
-  map("n", "<right>", edit_or_open, opts "Edit or Open")
-  map("n", "<S-l>", vsplit_preview, opts "Vsplit Preview")
-  map("n", "<S-right>", vsplit_preview, opts "Vsplit Preview")
-  map("n", "h", collapse_node, opts "Collapse")
-  map("n", "<left>", collapse_node, opts "Collapse")
-  map("n", "<S-h>", api.tree.collapse_all, opts "Collapse All")
-  map("n", "<S-left>", api.tree.collapse_all, opts "Collapse All")
+  vim.keymap.set("n", "l", api.node.open.edit, opts "Open")
+  vim.keymap.set("n", "u", api.tree.change_root_to_parent, opts "Up")
 end
----@type NvPluginSpec
--- NvimTree
+
+-- NOTE: File Explorer
 return {
   "nvim-tree/nvim-tree.lua",
+  init = function()
+    vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = "NvimTree | Explorer", silent = true })
+  end,
+  cmd = {
+    "NvimTreeOpen",
+    "NvimTreeToggle",
+    "NvimTreeFocus",
+    "NvimTreeFindFile",
+    "NvimTreeFindFileToggle",
+  },
   opts = {
     on_attach = on_attach,
     diagnostics = {
@@ -100,6 +64,7 @@ return {
         },
       },
     },
+
     renderer = {
       highlight_git = false,
       root_folder_label = false,
@@ -111,6 +76,7 @@ return {
           folder_arrow = true,
           git = true,
         },
+
         glyphs = {
           default = "󰈚",
           symlink = "",
@@ -124,6 +90,7 @@ return {
             arrow_open = "",
             arrow_closed = "",
           },
+
           git = {
             unstaged = "",
             staged = "✓",
@@ -135,11 +102,6 @@ return {
           },
         },
       },
-    },
-    filters = {
-      dotfiles = false,
-      custom = { ".git" },
-      exclude = {},
     },
   },
 }
