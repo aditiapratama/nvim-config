@@ -6,7 +6,7 @@ return {
       return {
         name = "Aditia A. Pratama",
         -- Optional
-        year = "2024",
+        -- year = "2024",
       }
     end,
 
@@ -21,6 +21,6 @@ return {
   },
   {
     "farmergreg/vim-lastplace",
-    event = {"bufReadPost", "bufNewFile"},
+    event = { "bufReadPost", "bufNewFile" },
   },
 }
