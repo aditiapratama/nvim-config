@@ -34,28 +34,20 @@ M.ui = {
     },
   },
   statusline = {
-    theme = "default", -- default/vscode/vscode_colored/minimal
+    theme = "minimal", -- default/vscode/vscode_colored/minimal
     -- default/round/block/arrow separators work only for default statusline theme
     -- round and block will work for minimal theme only
-    separator_style = "default",
+    separator_style = "round",
     order = {
       "mode",
       "file",
       "git",
-      "command",
       "%=",
-      -- "escape_status",
       "lsp_msg",
-      "macro_recording",
-      "diagnostics",
-      "flutter",
       "python_venv",
-      "auto_format",
-      "lsps",
-      "linters",
-      "formatters",
-      -- "clients",
-      -- "eol_char",
+      "diagnostics",
+      "command",
+      "clients",
       "cursor",
       "cwd",
       -- "total_lines",
@@ -65,9 +57,7 @@ M.ui = {
 
   tabufline = {
     enabled = true,
-    lazyload = true,
-    -- order = { "treeOffset", "buffers", "tabs", "btns" },
-    order = { "buffers", "tabs" },
+    order = { "treeOffset", "buffers", "tabs", "btns" },
     modules = require("core.tabufline").modules,
   },
 }
