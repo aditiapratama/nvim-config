@@ -2,7 +2,7 @@
 -- NOTE: Tmux navigation
 return {
   "alexghergh/nvim-tmux-navigation",
-  event = {"bufReadPost", "bufNewFile"},
+  event = { "bufReadPost", "bufNewFile" },
   enabled = function()
     return vim.fn.has "win32" == 0
   end,
