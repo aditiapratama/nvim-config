@@ -1,9 +1,22 @@
+---@type NvPluginSpec
+-- NOTE: AI Chat
 return {
   "yetone/avante.nvim",
   event = "VeryLazy",
   lazy = false,
   version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
   opts = {
+    windows = {
+      width = 0.125 * vim.o.columns,
+      sidebar_header = {
+        enabled = false,
+      },
+    },
+    mappings = {
+      sidebar = {
+        close = { "q" },
+      },
+    },
     -- add any opts here
     -- for example
     -- provider = "openai",
