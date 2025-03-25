@@ -120,3 +120,20 @@ map("n", "<leader>pp", "<cmd>Lazy profile<cr>", { desc = "Lazy | Profile", silen
 
 -- Update
 map("n", "<leader>pu", "<cmd>Lazy update<cr>", { desc = "Lazy | Update", silent = true })
+
+-- treewalker plugins
+-- movement
+-- map({ "n", "v" }, "<C-k>", "<cmd>Treewalker Up<cr>", { silent = true })
+-- map({ "n", "v" }, "<C-j>", "<cmd>Treewalker Down<cr>", { silent = true })
+-- map({ "n", "v" }, "<C-h>", "<cmd>Treewalker Left<cr>", { silent = true })
+-- map({ "n", "v" }, "<C-l>", "<cmd>Treewalker Right<cr>", { silent = true })
+map({ "n", "v" }, "<C-Up>", "<cmd>Treewalker Up<cr>", { silent = true })
+map({ "n", "v" }, "<C-Down>", "<cmd>Treewalker Down<cr>", { silent = true })
+map({ "n", "v" }, "<C-Left>", "<cmd>Treewalker Left<cr>", { silent = true })
+map({ "n", "v" }, "<C-Right>", "<cmd>Treewalker Right<cr>", { silent = true })
+
+-- swapping (using alternative key combinations that work better across terminals)
+map("n", "<leader>wk", "<cmd>Treewalker SwapUp<cr>", { desc = "Treewalker | Swap Up", silent = true })
+map("n", "<leader>wj", "<cmd>Treewalker SwapDown<cr>", { desc = "Treewalker | Swap Down", silent = true })
+map("n", "<leader>wh", "<cmd>Treewalker SwapLeft<cr>", { desc = "Treewalker | Swap Left", silent = true })
+map("n", "<leader>wl", "<cmd>Treewalker SwapRight<cr>", { desc = "Treewalker | Swap Right", silent = true })
