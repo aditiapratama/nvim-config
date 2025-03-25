@@ -11,7 +11,7 @@ return {
     dashboard = { enabled = false },
     indent = { enabled = true },
     input = { enabled = true, timeout = 3000 },
-    notifier = { enabled = true },
+    notifier = { enabled = false },
     quickfile = { enabled = true },
     scroll = { enabled = false },
     statuscolumn = { enabled = false },
