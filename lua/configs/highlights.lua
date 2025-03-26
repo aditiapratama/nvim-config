@@ -12,7 +12,7 @@ M.override = {
     bg = "black2",
   },
   -- Italic start here
--- imports
+  -- imports
   Include = {
     italic = true,
   },
@@ -45,13 +45,14 @@ M.override = {
   ["@operator"] = {
     bold = true,
   },
-  -- logical keywords 
+  -- logical keywords
   ["@keyword.operator"] = {
     italic = true,
   },
   -- function parameters
   ["@parameter"] = {
-    italic = true,},
+    italic = true,
+  },
   -- Italic end here
   ["@comment"] = { italic = true },
   Search = { fg = "black", bg = "blue" },
