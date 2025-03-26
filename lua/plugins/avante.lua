@@ -9,7 +9,7 @@ return {
     windows = {
       width = 0.125 * vim.o.columns,
       sidebar_header = {
-        enabled = false,
+        enabled = true,
       },
     },
     mappings = {
