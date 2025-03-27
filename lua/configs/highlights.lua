@@ -79,9 +79,9 @@ M.add = {
   DiffviewDiffAddAsDelete = { fg = "black", bg = "red" },
   LspInlayHint = { link = "Comment" },
   -- Avante sidebar
-  AvanteSidebarNormal = { link = "Normal" },
-  AvanteSidebarWinSeparator = { link = "WinSeparator" },
-  AvanteSidebarWinHorizontalSeparator = { fg = "purple", bg = "NONE" },
+  -- AvanteSidebarNormal = { link = "Normal" },
+  -- AvanteSidebarWinSeparator = { link = "WinSeparator" },
+  -- AvanteSidebarWinHorizontalSeparator = { fg = "red", bg = "NONE" },
 }
 
 return M
