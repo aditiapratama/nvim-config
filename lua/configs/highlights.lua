@@ -78,7 +78,6 @@ M.add = {
   DiffviewDiffDelete = { fg = "black", bg = "red" },
   DiffviewDiffAddAsDelete = { fg = "black", bg = "red" },
   LspInlayHint = { link = "Comment" },
-  TabLine = { bg = "black" },
 }
 
 return M
