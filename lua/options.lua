@@ -51,15 +51,15 @@ local options = {
   -- shellxquote = "",
 }
 
-local global = {
-  startup_message = true, -- Show startup message
-  toggle_cmp = true,
-}
+-- local global = {
+--   startup_message = true, -- Show startup message
+--   toggle_cmp = true,
+-- }
 
 for name, value in pairs(options) do
   vim.opt[name] = value
 end
 
-for name, value in pairs(global) do
-  vim.g[name] = value
-end
+-- for name, value in pairs(global) do
+--   vim.g[name] = value
+-- end
