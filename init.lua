@@ -1,7 +1,18 @@
-vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
-vim.g.mapleader = " "
-vim.g.maplocalleader = ","
+-- vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
+-- vim.g.mapleader = " "
+-- vim.g.maplocalleader = ","
+require "core.globals"
+require "core.env"
 require "options"
+
+if vim.version().minor >= 11 then
+  vim.tbl_add_reverse_lookup = function(tbl)
+    for k, v in pairs(tbl) do
+      tbl[v] = k
+    end
+  end
+end
+
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
@@ -33,5 +44,6 @@ for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
 end
 
 require "nvchad.autocmds"
+require "core.commands"
 require "core.autocommands"
 require "mappings"
