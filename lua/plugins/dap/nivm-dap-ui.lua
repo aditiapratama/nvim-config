@@ -58,23 +58,24 @@ return {
     { "nvim-neotest/nvim-nio" },
     { "theHamsta/nvim-dap-virtual-text", opts = {} },
     { "mfussenegger/nvim-dap" },
+    { "mfussenegger/nvim-dap-python" },
   },
   opts = {
     layouts = {
-      -- {
-      --   elements = {
-      --     -- Elements can be strings or table with id and size keys.
-      --     { id = "scopes", size = 0.25 },
-      --     "breakpoints",
-      --     "stacks",
-      --     "watches",
-      --   },
-      --   size = 40, -- 40 columns
-      --   position = "left",
-      -- },
       {
         elements = {
-          -- "repl",
+          -- Elements can be strings or table with id and size keys.
+          { id = "scopes", size = 0.25 },
+          "breakpoints",
+          "stacks",
+          "watches",
+        },
+        size = 40, -- 40 columns
+        position = "left",
+      },
+      {
+        elements = {
+          "repl",
         },
         size = 0.25, -- 25% of total lines
         position = "bottom",

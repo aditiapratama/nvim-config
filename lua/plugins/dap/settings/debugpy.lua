@@ -1,6 +1,7 @@
 local dap = require "dap"
 local path = ""
 
+-- require("dap-python").setup()
 if vim.fn.has "win32" == 1 then
   path = vim.fn.stdpath "data" .. "/mason/packages/debugpy/venv/Scripts/python"
 else
@@ -44,17 +45,53 @@ dap.configurations.python = {
 
     program = "${file}", -- This configuration will launch the current file if used.
     pythonPath = function()
-      -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
-      -- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
-      -- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable.
+      local detected_path = nil
+
+      -- Check for local virtual environments first
       local cwd = vim.fn.getcwd()
-      if vim.fn.executable(cwd .. "/venv/bin/python") == 1 then
-        return cwd .. "/venv/bin/python"
-      elseif vim.fn.executable(cwd .. "/.venv/bin/python") == 1 then
-        return cwd .. "/.venv/bin/python"
-      else
-        return path
+      for _, venv in ipairs { "/venv/bin/python", "/.venv/bin/python" } do
+        if vim.fn.executable(cwd .. venv) == 1 then
+          detected_path = cwd .. venv
+          break
+        end
       end
+
+      -- Check for active virtual environment from VIRTUAL_ENV
+      if not detected_path then
+        local virtual_env = os.getenv "VIRTUAL_ENV"
+        if virtual_env and vim.fn.executable(virtual_env .. "/bin/python") == 1 then
+          detected_path = virtual_env .. "/bin/python"
+        end
+      end
+
+      -- Check for pyenv
+      if not detected_path then
+        local pyenv_root = os.getenv "PYENV_ROOT" or os.getenv "HOME" .. "/.pyenv"
+
+        -- Try to get pyenv version directly
+        local handle = io.popen "pyenv version-name 2>/dev/null"
+        if handle then
+          local version = handle:read("*a"):gsub("%s+$", "")
+          handle:close()
+
+          if version ~= "" and version ~= "system" then
+            local python_path = pyenv_root .. "/versions/" .. version .. "/bin/python"
+            if vim.fn.executable(python_path) == 1 then
+              detected_path = python_path
+            end
+          end
+        end
+      end
+
+      -- Fallback to the debugpy python
+      if not detected_path then
+        detected_path = path
+      end
+
+      -- Notify the user about the detected Python path
+      vim.notify("DAP using Python: " .. detected_path, vim.log.levels.INFO)
+
+      return detected_path
     end,
   },
 }
