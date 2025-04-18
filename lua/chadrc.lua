@@ -195,9 +195,9 @@ M.mason = {
 M.lsp = { signature = false }
 
 M.base46 = {
-  theme = "catppuccin",
+  theme = "kanagawa",
   transparency = true,
-  theme_toggle = { "catppuccin", "chadracula" },
+  theme_toggle = { "kanagawa", "chadracula" },
   hl_override = highlights.override,
   hl_add = highlights.add,
   integrations = {
