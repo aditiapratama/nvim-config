@@ -24,17 +24,34 @@ return {
 
     opts.completion["completeopt"] = "menu,menuone,noselect" -- disable autoselect
 
+    -- Add colorful-menu formatting
+    opts.formatting = {
+      format = function(entry, vim_item)
+        local highlights_info = require("colorful-menu").cmp_highlights(entry)
+
+        -- highlight_info is nil means we are missing the ts parser, it's
+        -- better to fallback to use default `vim_item.abbr`. What this plugin
+        -- offers is two fields: `vim_item.abbr_hl_group` and `vim_item.abbr`.
+        if highlights_info ~= nil then
+          vim_item.abbr_hl_group = highlights_info.highlights
+          vim_item.abbr = highlights_info.text
+        end
+
+        return vim_item
+      end,
+    }
+
     opts.enabled = function()
       return (vim.g.toggle_cmp and vim.bo.buftype == "")
     end
 
-    require("luasnip").filetype_extend("javascriptreact", { "html" })
-    require("luasnip").filetype_extend("typescriptreact", { "html" })
-    require("luasnip").filetype_extend("svelte", { "html" })
-    require("luasnip").filetype_extend("vue", { "html" })
-    require("luasnip").filetype_extend("php", { "html" })
-    require("luasnip").filetype_extend("javascript", { "javascriptreact" })
-    require("luasnip").filetype_extend("typescript", { "typescriptreact" })
+    -- require("luasnip").filetype_extend("javascriptreact", { "html" })
+    -- require("luasnip").filetype_extend("typescriptreact", { "html" })
+    -- require("luasnip").filetype_extend("svelte", { "html" })
+    -- require("luasnip").filetype_extend("vue", { "html" })
+    -- require("luasnip").filetype_extend("php", { "html" })
+    -- require("luasnip").filetype_extend("javascript", { "javascriptreact" })
+    -- require("luasnip").filetype_extend("typescript", { "typescriptreact" })
 
     --NOTE: add border for cmp window
     if vim.g.border_enabled then
