@@ -57,14 +57,15 @@ return {
 
           local require_ok, server = pcall(require, "plugins.lsp.settings." .. server_name)
           if require_ok then
-            opts = vim.tbl_deep_extend("force", server, opts)
+            opts = vim.tbl_deep_extend("force", opts, server)
           end
 
-          -- Neovim < 0.11
-          -- require("lspconfig")[server_name].setup(opts)
-          -- Neovim >= 0.11
-          vim.lsp.config(server_name, opts)
-          vim.lsp.enable(server_name)
+          -- if vim.version().minor >= 12 then
+          --   vim.lsp.config(server_name, opts)
+          --   vim.lsp.enable(server_name)
+          -- else
+          require("lspconfig")[server_name].setup(opts)
+          -- end
         end,
       }
     end,
