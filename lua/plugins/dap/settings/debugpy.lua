@@ -1,38 +1,39 @@
 local dap = require "dap"
 local path = ""
 
--- require("dap-python").setup()
 if vim.fn.has "win32" == 1 then
   path = vim.fn.stdpath "data" .. "/mason/packages/debugpy/venv/Scripts/python"
 else
   path = vim.fn.stdpath "data" .. "/mason/packages/debugpy/venv/bin/python"
 end
 
-dap.adapters.python = function(cb, config)
-  if config.request == "attach" then
-    ---@diagnostic disable-next-line: undefined-field
-    local port = (config.connect or config).port
-    ---@diagnostic disable-next-line: undefined-field
-    local host = (config.connect or config).host or "127.0.0.1"
-    cb {
-      type = "server",
-      port = assert(port, "`connect.port` is required for a python `attach` configuration"),
-      host = host,
-      options = {
-        source_filetype = "python",
-      },
-    }
-  else
-    cb {
-      type = "executable",
-      command = path,
-      args = { "-m", "debugpy.adapter" },
-      options = {
-        source_filetype = "python",
-      },
-    }
-  end
-end
+require("dap-python").setup(path)
+-- Define the Python adapter
+-- dap.adapters.python = function(cb, config)
+--   if config.request == "attach" then
+--     ---@diagnostic disable-next-line: undefined-field
+--     local port = (config.connect or config).port
+--     ---@diagnostic disable-next-line: undefined-field
+--     local host = (config.connect or config).host or "127.0.0.1"
+--     cb {
+--       type = "server",
+--       port = assert(port, "`connect.port` is required for a python `attach` configuration"),
+--       host = host,
+--       options = {
+--         source_filetype = "python",
+--       },
+--     }
+--   else
+--     cb {
+--       type = "executable",
+--       command = path,
+--       args = { "-m", "debugpy.adapter" },
+--       options = {
+--         source_filetype = "python",
+--       },
+--     }
+--   end
+-- end
 
 dap.configurations.python = {
   {
