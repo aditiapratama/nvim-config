@@ -1,7 +1,8 @@
 ---@type NvPluginSpec
 return {
   "kdheepak/lazygit.nvim",
-  event = {"bufReadPost", "bufNewFile"},
+  event = { "bufReadPost", "bufNewFile" },
+  enabled = false,
   cmd = {
     "LazyGit",
     "LazyGitConfig",
