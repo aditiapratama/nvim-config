@@ -1,6 +1,7 @@
 return {
   "3rd/image.nvim",
   dependencies = { "luarocks.nvim" },
+  enabled = false,
   opts = {
     backend = "kitty",
     processor = "magick_cli",
@@ -9,7 +10,7 @@ return {
         enabled = true,
         clear_in_insert_mode = false,
         download_remote_images = true,
-        only_render_image_at_cursor = false,
+        only_render_image_at_cursor = true,
         floating_windows = true,
         filetypes = { "markdown", "noice", "cmp_docs" },
       },
@@ -43,6 +44,20 @@ return {
       "*.ico",
       "*.pdf",
     },
+    ignore_file_patterns = {
+      "*.mp4",
+      "*.avi",
+      "*.mov",
+      "*.mkv",
+      "*.wmv",
+      "*.flv",
+      "*.webm",
+      "*.m4v",
+      "*.3gp",
+      "*.mpeg",
+      "*.mpg",
+      "*.ts",
+    },
   },
-  ft = { "markdown", "noice", "cmp_docs" },
+  ft = { "markdown", "noice", "cmp_docs", "TelescopeResults" },
 }
