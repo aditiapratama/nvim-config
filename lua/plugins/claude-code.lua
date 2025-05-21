@@ -7,7 +7,7 @@ return {
   config = function()
     require("claude-code").setup {
       window = {
-        position = "topleft",
+        position = "rightbelow vsplit", -- Position of the window: "botright", "topleft", "vertical", "rightbelow vsplit", etc.
       },
     }
   end,
