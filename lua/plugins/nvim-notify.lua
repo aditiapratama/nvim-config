@@ -3,7 +3,7 @@
 return {
   "rcarriga/nvim-notify",
   -- lazy = false,
-  event = {"bufReadPost", "bufNewFile"},
+  event = { "bufReadPost", "bufNewFile" },
   opts = {
     level = 2,
     minimum_width = 50,
@@ -26,7 +26,7 @@ return {
     math.randomseed(os.time())
     local randomMessage = messages[math.random(#messages)]
     if vim.g.startup_message then
-      vim.notify(randomMessage, vim.log.levels.INFO, { title = "Just For Fun:" })
+      vim.notify(randomMessage, vim.log.levels.INFO, { title = "Wise Words:" })
     end
   end,
 }
