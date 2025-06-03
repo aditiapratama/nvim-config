@@ -1,6 +1,7 @@
 return {
   "zbirenbaum/neodim",
   event = "LspAttach",
+  enabled = false,
   config = function()
     require("neodim").setup {
       alpha = 0.50,
