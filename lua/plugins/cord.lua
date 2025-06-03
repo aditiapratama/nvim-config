@@ -1,8 +1,10 @@
 ---@type NvPluginSpec
+-- NOTE: Discord Rich Presence
 return {
   "vyfor/cord.nvim",
-  build = "./build",
-  event = {"bufReadPost", "bufNewFile"},
+  build = ":Cord update",
+  lazy = false,
+  -- event = { "bufReadPost", "bufNewFile" },
   opts = {},
   config = function()
     require("cord").setup {
