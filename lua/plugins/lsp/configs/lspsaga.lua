@@ -6,6 +6,12 @@ return {
   -- commit = "898030df423a527c55a6fd85e85e58e840ff6e82",
   init = function()
     -- vim.keymap.set("n", "<leader>la", "<cmd>Lspsaga code_action<cr>", { desc = "Lspsaga | Code Action", silent = true })
+    vim.keymap.set(
+      "n",
+      "<leader>gd",
+      "<cmd>Lspsaga goto_definition<cr>",
+      { desc = "Lspsaga | Goto Definition", silent = true }
+    )
     vim.keymap.set("n", "<leader>lo", "<cmd>Lspsaga outline<cr>", { desc = "Lspsaga | Code Outline", silent = true })
     vim.keymap.set(
       "n",
