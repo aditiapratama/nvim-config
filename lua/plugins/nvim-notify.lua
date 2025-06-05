@@ -6,11 +6,12 @@ return {
   event = { "bufReadPost", "bufNewFile" },
   opts = {
     level = 2,
-    minimum_width = 50,
-    render = "default",
-    stages = "fade",
+    -- minimum_width = 50,
+    max_width = 50,
+    render = "wrapped-compact",
+    stages = "fade_in_slide_out",
     timeout = 3000,
-    top_down = false,
+    top_down = true,
   },
   config = function(_, opts)
     local base46 = require("nvconfig").base46
