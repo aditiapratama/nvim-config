@@ -1,6 +1,3 @@
--- vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
--- vim.g.mapleader = " "
--- vim.g.maplocalleader = ","
 require "core.globals"
 require "core.env"
 require "options"
@@ -46,4 +43,7 @@ end
 require "nvchad.autocmds"
 require "core.commands"
 require "core.autocommands"
-require "mappings"
+
+vim.schedule(function()
+  require "mappings"
+end)
