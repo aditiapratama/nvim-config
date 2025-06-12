@@ -110,8 +110,10 @@ autocmd("TextYankPost", {
 --   desc = "Disable Tabline",
 -- })
 
-autocmd("BufEnter", {
+autocmd("FileType", {
+  pattern = "*",
   callback = function()
+    -- Disable comment on new line
     vim.opt.formatoptions:remove { "c", "r", "o" }
   end,
   group = general,
@@ -125,6 +127,15 @@ autocmd("FileType", {
   end,
   group = general,
   desc = "Set shiftwidth to 4 in these filetypes",
+})
+
+-- :h W10
+autocmd("FileChangedRO", {
+  callback = function()
+    vim.bo.readonly = false
+  end,
+  group = general,
+  desc = "Disable Readonly Message",
 })
 
 autocmd({ "FocusLost", "BufLeave", "BufWinLeave", "InsertLeave" }, {
