@@ -4,8 +4,9 @@ local fn = vim.fn
 
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
-local uv = vim.uv
 
+-- TMUX Plugin rename_session_windows
+local uv = vim.uv
 autocmd("VimEnter", {
   callback = function()
     if vim.env.TMUX_PLUGIN_MANAGER_PATH then
