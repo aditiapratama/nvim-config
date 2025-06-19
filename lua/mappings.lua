@@ -10,6 +10,9 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 -- map("i", "jj", "<ESC>")
 -- map("n", "<leader>sv", ":source $MYVIMRC<CR>", { noremap = true, silent = true })
 -- Move
+map({ "n", "t" }, "<A-i>", function()
+  require("floaterm").toggle()
+end)
 -- Normal-mode commands
 map("n", "<A-j>", ":MoveLine(1)<CR>", opts)
 map("n", "<A-k>", ":MoveLine(-1)<CR>", opts)
