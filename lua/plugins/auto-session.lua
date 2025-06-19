@@ -32,15 +32,14 @@ return {
     auto_save = true, -- Enables/disables auto saving
     bypass_save_filetypes = { "NvimTree", "nvdash" },
     enabled = true, -- Enables/disables the plugin's auto save and restore features
+    use_git_branch = true, -- Use the git branch to differentiate the session name
     session_lens = {
-      -- If load_on_setup is false, make sure you use `:SessionSearch` to open the picker as it will initialize everything first
       load_on_setup = true,
-      previewer = true,
-      theme_conf = {
+      picker_opts = {
         border = true,
       },
+      previewer = true,
     },
     suppressed_dirs = { "/", "~/", "~/Downloads" },
-    use_git_branch = true, -- Use the git branch to differentiate the session name
   },
 }
