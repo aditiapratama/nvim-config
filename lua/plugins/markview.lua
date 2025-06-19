@@ -2,8 +2,15 @@
 -- NOTE: Better Markdown
 return {
   "OXY2DEV/markview.nvim",
-  enabled = false,
-  lazy = false, -- Recommended
+  lazy = false,
+  opts = {
+    preview = {
+      filetypes = { "markdown", "Avante", "codecompanion" },
+      ignore_buftypes = {},
+    },
+    max_length = 99999,
+  },
+  -- enabled = false,
   -- ft = "markdown" -- If you decide to lazy-load anyway
   dependencies = {
     -- You will not need this if you installed the
