@@ -85,7 +85,7 @@ return {
           },
         },
       },
-      scroll = { enabled = false },
+      scroll = { enabled = true },
     }
   end,
   keys = {
