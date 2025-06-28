@@ -8,6 +8,7 @@ return {
       filetypes = { "markdown", "Avante", "codecompanion" },
       ignore_buftypes = {},
     },
+    experimental = { check_rtp_message = false },
     max_length = 99999,
   },
   -- enabled = false,
