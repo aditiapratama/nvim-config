@@ -2,7 +2,7 @@
 ---NOTE: Automatically Import updates on module/package rename
 return {
   "alexpasmantier/pymple.nvim",
-  -- enabled = false,
+  enabled = false,
   dependencies = {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
