@@ -15,16 +15,14 @@ return {
         -- enable_dap = nil --      boolean?         whether to enable DAP for this profile (if nil, the global setting is used)
         -- watch = nil --           boolean?         whether to watch the add-on directory for changes (if nil, the global setting is used)
         -- },
+        { name = "Blender 4.5", cmd = "C:\\blender\\4.5\\blender.exe" },
         {
-          name = "DeepPaint 5.0",
-          cmd = "/opt/blender/5.0/blender",
-          env = { ["BLENDER_SYSTEM_EXTENSIONS"] = "/home/aditia/Documents/blender5/" },
+          name = "Blender 4.2",
+          cmd = "C:\\blender\\4.2\\blender.exe",
+          -- env = { ["BLENDER_SYSTEM_EXTENSIONS"] = "V:\\common\\aditia\\extensions" },
         },
-        { name = "Blender 4.5", cmd = "/opt/blender/4.2/blender" },
-        { name = "Blender 4.4", cmd = "/opt/blender/4.4/blender" },
-        { name = "Blender 4.3", cmd = "/opt/blender/4.3/blender" },
-        { name = "Blender 4.1", cmd = "/opt/blender/4.1.1/blender" },
-        { name = "Blender 3.6", cmd = "/opt/blender/3.6/blender" },
+        { name = "Blender 3.6", cmd = "C:\\blender\\3.6\\blender.exe" },
+        { name = "Blender 3.3", cmd = "C:\\blender\\3.3\\blender.exe" },
       },
       dap = { --                      DapConfig?       DAP configuration
         enabled = true, --            boolean?         whether to enable DAP (can be overridden per profile)
