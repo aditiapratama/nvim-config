@@ -1,11 +1,10 @@
 local function get_venv(variable)
   local venv = os.getenv(variable)
-  if venv ~= nil and string.find(venv, "/") then
-    local orig_venv = venv
-    for w in orig_venv:gmatch "([^/]+)" do
-      venv = w
-    end
-    venv = string.format("%s", venv)
+  if venv ~= nil then
+    -- Extract just the directory name from the path
+    local path_separator = package.config:sub(1, 1) -- Gets the path separator for the current OS
+    local last_separator = venv:match(".*" .. path_separator .. "()") or 1
+    venv = venv:sub(last_separator)
   end
   return venv
 end
