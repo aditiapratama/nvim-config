@@ -1,9 +1,22 @@
 require "nvchad.mappings"
+local cwd = vim.fn.stdpath "config" .. "/"
+local config_dir = { cwd }
+local utils = require "core.utils"
 
 -- add yours here
 
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
+
+-- Toggle Wrap
+vim.keymap.set("n", "<leader>ow", function()
+  vim.wo.wrap = not vim.wo.wrap
+  if vim.wo.wrap then
+    vim.notify("Toggled On", vim.log.levels.INFO, { title = "Line Wrap" })
+  else
+    vim.notify("Toggled Off", vim.log.levels.INFO, { title = "Line Wrap" })
+  end
+end, { desc = "Options | Toggle Wrap", silent = true })
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 -- map("i", "jk", "<ESC>")
@@ -66,6 +79,9 @@ map("v", "j", "v:count == 0 ? 'gj' : 'j'", { desc = "General | Better Down", exp
 
 -- Better Up (Visual Mode)
 map("v", "k", "v:count == 0 ? 'gk' : 'k'", { desc = "General | Better Up", expr = true, silent = true })
+
+-- Clear highlights manually with Esc
+vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR><Esc>", { desc = "General | Clear search highlight with Esc" })
 
 -- Indent backward
 map("n", "<", "<<", { desc = "General | Indent backward", silent = true })
