@@ -2,7 +2,7 @@ require "core.globals"
 require "core.env"
 require "options"
 
-if vim.version().minor >= 11 then
+if vim.version().minor < 11 then
   vim.tbl_add_reverse_lookup = function(tbl)
     for k, v in pairs(tbl) do
       tbl[v] = k
