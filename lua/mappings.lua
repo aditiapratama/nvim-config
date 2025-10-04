@@ -156,3 +156,6 @@ map("n", "<leader>wk", "<cmd>Treewalker SwapUp<cr>", { desc = "Treewalker | Swap
 map("n", "<leader>wj", "<cmd>Treewalker SwapDown<cr>", { desc = "Treewalker | Swap Down", silent = true })
 map("n", "<leader>wh", "<cmd>Treewalker SwapLeft<cr>", { desc = "Treewalker | Swap Left", silent = true })
 map("n", "<leader>wl", "<cmd>Treewalker SwapRight<cr>", { desc = "Treewalker | Swap Right", silent = true })
+
+map({ "v" }, "<leader>yp", "<cmd>VisualDuplicate -1<cr>", { desc = "Duplicate | Duplicate Line Up", silent = true })
+map({ "v" }, "<leader>yP", "<cmd>VisualDuplicate +1<cr>", { desc = "Duplicate | Duplicate Line Down", silent = true })
