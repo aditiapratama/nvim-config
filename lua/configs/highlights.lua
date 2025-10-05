@@ -55,16 +55,17 @@ M.override = {
   },
   -- Italic end here
   ["@comment"] = { italic = true },
-  Search = { fg = "black", bg = "blue" },
-  IncSearch = { fg = "black", bg = "red" },
-  CurSearch = { fg = "black", bg = "blue" },
-  Substitute = { fg = "black", bg = "green" },
+  -- Search = { fg = "black", bg = "blue" },
+  -- IncSearch = { fg = "black", bg = "red" },
+  -- CurSearch = { fg = "black", bg = "blue" },
+  -- Substitute = { fg = "black", bg = "green" },
   NvDashAscii = { bg = "NONE", fg = "blue" },
   NvDashButtons = { bg = "NONE" },
   FoldColumn = { bg = "NONE" },
   LspReferenceRead = { link = "Underlined" },
   LspReferenceText = { link = "Underlined" },
   LspReferenceWrite = { link = "Underlined" },
+  TbFill = { link = "Normal" },
   TblineFill = { link = "Normal" },
   NvimTreeRootFolder = { link = "NvimTreeFolderName" },
 }
@@ -77,7 +78,11 @@ M.add = {
   DiffviewDiffChange = { fg = "black", bg = "green" },
   DiffviewDiffDelete = { fg = "black", bg = "red" },
   DiffviewDiffAddAsDelete = { fg = "black", bg = "red" },
-  LspInlayHint = { link = "Comment" },
+  -- LspInlayHint = { link = "Comment" },
+  LspInlayHint = { fg = "infoForeground", italic = true },
+  CursorLine = { bg = "selectionBackground" },
+  Visual = { bg = "selectionBackground" },
+  NotifyBackground = { bg = "black" },
 }
 
 return M
