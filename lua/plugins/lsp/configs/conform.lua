@@ -1,6 +1,7 @@
 local formatters_by_ft = {
   lua = { "stylua" },
-  python = { "isort", "black" },
+  -- python = { "isort", "black" },
+  python = { "black" },
   cpp = { "clang_format" },
   c = { "clang_format" },
   -- go = { "gofumpt" },

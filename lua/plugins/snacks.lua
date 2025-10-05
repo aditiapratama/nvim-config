@@ -42,11 +42,11 @@ return {
       },
       animate = { enabled = false },
       lazygit = { enabled = true },
-      image = { enabled = true },
+      image = { enabled = false },
       dashboard = { enabled = false },
       explorer = { enabled = true },
       input = { enabled = true },
-      picker = { enabled = true },
+      picker = { enabled = false },
       notifier = { enabled = false },
       scope = {
         enabled = true,

@@ -2,7 +2,7 @@
 -- NOTE: Better Markdown
 return {
   "OXY2DEV/markview.nvim",
-  lazy = false,
+  -- lazy = false,
   opts = {
     preview = {
       filetypes = { "markdown", "Avante", "codecompanion" },

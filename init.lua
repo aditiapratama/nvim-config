@@ -48,9 +48,10 @@ vim.schedule(function()
   require "mappings"
 end)
 
+vim.o.shell = "pwsh"
+
 if vim.g.neovide then
   -- Put anything you want to happen only in Neovide here
   vim.g.neovide_opacity = 0.95
   vim.g.neovide_normal_opacity = 0.95
-  vim.o.shell = "pwsh"
 end
