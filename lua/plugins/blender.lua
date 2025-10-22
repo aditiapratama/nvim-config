@@ -27,7 +27,7 @@ return {
         { name = "Blender 3.6", cmd = "/opt/blender/3.6/blender" },
       },
       dap = { --                      DapConfig?       DAP configuration
-        enabled = true, --            boolean?         whether to enable DAP (can be overridden per profile)
+        enabled = false, --            boolean?         whether to enable DAP (can be overridden per profile)
       },
       notify = { --                   NotifyConfig?    notification configuration
         enabled = true, --            boolean?         whether to enable notifications
