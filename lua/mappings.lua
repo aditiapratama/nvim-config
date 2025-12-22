@@ -9,7 +9,7 @@ local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- Toggle Wrap
-vim.keymap.set("n", "<leader>ow", function()
+map("n", "<leader>ow", function()
   vim.wo.wrap = not vim.wo.wrap
   if vim.wo.wrap then
     vim.notify("Toggled On", vim.log.levels.INFO, { title = "Line Wrap" })
