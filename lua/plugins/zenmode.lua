@@ -3,7 +3,7 @@ return {
   cmd = "ZenMode",
   opts = {
     window = {
-      width = 100,
+      width = 180,
       options = {
         foldcolumn = "1", -- disable fold column,
       },
