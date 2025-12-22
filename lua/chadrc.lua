@@ -148,8 +148,9 @@ M.mason = {
 
     -- Python
     "basedpyright",
-    "debugpy",
     "ruff",
+    "ty",
+    "debugpy",
     -- "pyright",
     -- "isort",
     -- "black",
