@@ -1,10 +1,9 @@
 ---@type NvPluginSpec
 return {
   "saghen/blink.cmp",
-  enabled = false,
-  -- enabled = function()
-  --   return vim.g.toggle_blink
-  -- end,
+  enabled = function()
+    return vim.g.toggle_blink
+  end,
   event = { "InsertEnter", "CmdlineEnter" },
   version = "*",
   opts = {
