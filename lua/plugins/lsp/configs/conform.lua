@@ -1,6 +1,7 @@
 local formatters_by_ft = {
   lua = { "stylua" },
-  python = { "isort", "black" },
+  -- python = { "isort", "black" },
+  python = { "ruff" },
   cpp = { "clang_format" },
   c = { "clang_format" },
   -- go = { "gofumpt" },
@@ -40,6 +41,19 @@ return {
     end,
     formatters_by_ft = formatters_by_ft,
     formatters = {
+      ruff = {
+        command = "ruff",
+        args = {
+          "format",
+          "--line-length",
+          "120",
+          "--stdin-filename",
+          "$FILENAME",
+          "-",
+        },
+        stdin = true,
+      },
+
       black = {
         prepend_args = { "--line-length", "120" },
       },
