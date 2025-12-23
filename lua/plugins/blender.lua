@@ -15,6 +15,7 @@ return {
         -- enable_dap = nil --      boolean?         whether to enable DAP for this profile (if nil, the global setting is used)
         -- watch = nil --           boolean?         whether to watch the add-on directory for changes (if nil, the global setting is used)
         -- },
+        { name = "Blender 4.2", cmd = "/opt/blender/4.2/blender" },
         {
           name = "Blender 5.0",
           cmd = "/opt/blender/5.0/blender",
