@@ -28,17 +28,18 @@ return {
     })
   end,
   opts = {
-    auto_restore = true, --Enables/disables auto restoring
-    auto_save = true, -- Enables/disables auto saving
-    bypass_save_filetypes = { "NvimTree", "nvdash" },
     enabled = true, -- Enables/disables the plugin's auto save and restore features
-    use_git_branch = true, -- Use the git branch to differentiate the session name
+    auto_save = true, -- Enables/disables auto saving
+    auto_restore = true, --Enables/disables auto restoring
+    bypass_save_filetypes = { "NvimTree", "nvdash" },
+    git_use_branch_name = true, -- Use the git branch to differentiate the session name
+    auto_delete_empty_sessions = true, -- Automatically delete empty sessions
     session_lens = {
       load_on_setup = true,
       picker_opts = {
         border = true,
       },
-      previewer = true,
+      previewer = "summary",
     },
     suppressed_dirs = { "/", "~/", "~/Downloads" },
   },
