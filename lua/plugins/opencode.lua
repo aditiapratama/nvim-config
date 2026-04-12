@@ -34,9 +34,9 @@ return {
         ["<leader>arr"] = { "diff_restore_snapshot_file" }, -- Restore a file to a restore point
         ["<leader>arR"] = { "diff_restore_snapshot_all" }, -- Restore all files to a restore point
         ["<leader>ax"] = { "swap_position" }, -- Swap Opencode pane left/right
-        ["<leader>apa"] = { "permission_accept" }, -- Accept permission request once
-        ["<leader>apA"] = { "permission_accept_all" }, -- Accept all (for current tool)
-        ["<leader>apd"] = { "permission_deny" }, -- Deny permission request once
+        ["<leader>apa"] = { "permission", "accept" }, -- Accept permission request once
+        ["<leader>apA"] = { "permission", "accept_all" }, -- Accept all (for current tool)
+        ["<leader>apd"] = { "permission", "deny" }, -- Deny permission request once
       },
       input_window = {
         ["<cr>"] = { "submit_input_prompt", mode = { "n", "i" } }, -- Submit prompt (normal mode and insert mode)
