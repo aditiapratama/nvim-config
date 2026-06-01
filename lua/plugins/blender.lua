@@ -16,6 +16,11 @@ return {
         -- watch = nil --           boolean?         whether to watch the add-on directory for changes (if nil, the global setting is used)
         -- },
         {
+          name = "Blender 5.2",
+          cmd = "/opt/blender/5.2/blender",
+          -- env = { ["BLENDER_SYSTEM_EXTENSIONS"] = "/home/aditia/Documents/blender5/" },
+        },
+        {
           name = "Blender 5.1",
           cmd = "/opt/blender/5.1/blender",
           -- env = { ["BLENDER_SYSTEM_EXTENSIONS"] = "/home/aditia/Documents/blender5/" },
